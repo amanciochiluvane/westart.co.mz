@@ -407,14 +407,19 @@
                         </script>
                         
                         
-                        
-
+                        <style>
+                            @media(max-width:800px){
+                                #tabellas>article{
+                                    width:100%;
+                                }
+                            }
+                        </style>
 
                         <div id="content" class="cs-main-content">
                             <div id="primary" class="cs-content-area">
                                 <div class="cs-posts-area cs-posts-area-posts">
                                     <div class="cs-posts-area__outer">
-                                        <div class="cs-posts-area__main cs-archive-grid  cs-posts-area__home cs-posts-area__grid">
+                                        <div class="cs-posts-area__main cs-archive-grid  cs-posts-area__home cs-posts-area__grid" id=tabellas>
                                             
                            
                                             
@@ -485,7 +490,7 @@
                                                 
                                                                     newsCard.innerHTML = `
                                                                     
-                                                                        <div class="cs-entry__outer" style="max-width:260px">
+                                                                        <div class="cs-entry__outer" id="yea" >
                                                                             <div class="cs-entry__inner cs-entry__thumbnail cs-entry__overlay cs-overlay-ratio cs-ratio-landscape" data-scheme="inverse">
                                                                                 <div class="cs-overlay-background">
                                                                                     <img width="512" height="384" src="${imagemUrl}" style="border:none"class="attachment-csco-thumbnail size-csco-thumbnail wp-post-image" alt="${titulo}" decoding="async" loading="lazy" />
@@ -762,6 +767,9 @@
     
     }}
     @media (min-width: 800px) {
+        #yea{
+            max-width:260px;
+        }
 .cs-archive-grid {
 grid-template-columns: repeat(2, 1fr); /* Três colunas para telas maiores que 800 pixels */
 }}
