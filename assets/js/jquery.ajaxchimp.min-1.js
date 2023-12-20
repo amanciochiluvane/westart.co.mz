@@ -76,7 +76,7 @@
                     ) {
                         msg = $.ajaxChimp.translations[settings.language][$.ajaxChimp.responses[msg]];
                     }
-                    label(msg);
+                    label.html(msg);
 
                     label.show(2000);
                     if (settings.callback) {
@@ -110,7 +110,7 @@
                 ) {
                     submitMsg = $.ajaxChimp.translations[settings.language]['submit'];
                 }
-                label(submitMsg).show(2000);
+                label.html(submitMsg).show(2000);
 
                 return false;
             });

@@ -16,10 +16,10 @@
                 data: form.serialize(), // serialize form data
                 beforeSend: function() {
                     alert.fadeOut();
-                    submit('Sending....'); // change submit button text
+                    submit.html('Sending....'); // change submit button text
                 },
                 success: function(data) {
-                    alert(data).fadeIn(); // fade in response data
+                    alert.html(data).fadeIn(); // fade in response data
                     form.trigger('reset'); // reset form
                     submit.attr("style", "display: none !important"); // reset submit button text
                 },
