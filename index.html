@@ -272,10 +272,7 @@
                                                      alt="" decoding="async" srcset="" /></div>
                                             </div>
                                             <div class="cs-entry__inner cs-entry__content cs-overlay-content" data-swiper-parallax-x="-400" data-swiper-parallax-duration="800">
-                                                <div class="cs-entry__post-meta">
-                                                    <div class="cs-meta-author"><span class="cs-meta-author-by">Por</span><a class="cs-meta-author-link url fn n" href="#"><span class="cs-meta-author-name"></span></a></div>
-                                                    <div class="cs-meta-date"></div>
-                                                </div>
+                                               
                                                 <h2 class="cs-entry__title"> </h2>
                                                 <div class="cs-entry__subtitle"> </div>
                                                 <div class="cs-entry__post-meta">
@@ -300,9 +297,7 @@
                                             </div>
                                             <div class="cs-entry__inner cs-entry__content cs-overlay-content" data-swiper-parallax-x="-400" data-swiper-parallax-duration="800">
                                                 <div class="cs-entry__post-meta">
-                                                    <div class="cs-meta-author"><span class="cs-meta-author-by">Por</span><a class="cs-meta-author-link url fn n" href="#"><span class="cs-meta-author-name"></span></a></div>
-                                                    <div class="cs-meta-date"></div>
-                                                </div>
+                                                 
                                                 <h2 class="cs-entry__title"> </h2>
                                                 <div class="cs-entry__subtitle"> </div>
                                                 <div class="cs-entry__post-meta">
@@ -327,9 +322,7 @@
                                             </div>
                                             <div class="cs-entry__inner cs-entry__content cs-overlay-content" data-swiper-parallax-x="-400" data-swiper-parallax-duration="800">
                                                 <div class="cs-entry__post-meta">
-                                                    <div class="cs-meta-author"><span class="cs-meta-author-by">Por</span><a class="cs-meta-author-link url fn n" href="#"><span class="cs-meta-author-name"></span></a></div>
-                                                    <div class="cs-meta-date"></div>
-                                                </div>
+                                                    
                                                 <h2 class="cs-entry__title"> </h2>
                                                 <div class="cs-entry__subtitle"> </div>
                                                 <div class="cs-entry__post-meta">
@@ -381,8 +374,8 @@
                                             const thumbnailLink = slide.querySelector('.cs-overlay-link');
                                             const thumbnail = slide.querySelector('.cs-overlay-background img');
                                             const thumbnail3 = slide.querySelector('#hig');
-                                            const author = slide.querySelector('.cs-meta-author-name');
-                                            const date = slide.querySelector('.cs-meta-date');
+                                           
+                                            
                                             const title = slide.querySelector('.cs-entry__title');
                                             const categoria = slide.querySelector('.cs-catg');
                                             const subtitle = slide.querySelector('.cs-entry__subtitle');
@@ -392,8 +385,7 @@
                                             thumbnail.srcset = builder.image(item?.imagem?.asset?._ref);
                                             thumbnail3.src = builder.image(item?.imagem?.asset?._ref);
                                             thumbnail.alt = item.titulo;
-                                            author.textContent = item.autor;
-                                            date.textContent = new Date(item.data).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                                            
                                             title.textContent = item.titulo;
                                             subtitle.textContent = item.descricao;
                                             categoria.textContent = item.category;
@@ -479,7 +471,7 @@
                                                                     const titulo = item.titulo;
                                                                     const descricao = item.descricao;
                                                                     const imagemUrl = builder.image(item?.imagem?.asset?._ref);
-                                                                    const dt = new Date(item.data).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                                                                    
                                                                     const aut = item.autor;
                                                                     const categoria=item.category;
                                                 
@@ -499,19 +491,16 @@
                                                                             </div>
                                                                             <div class="cs-entry__inner cs-entry__content">
                                                                                 <div class="cs-entry__post-meta">
-                                                                                    <div class="cs-meta-author">
-                                                                                        <span class="cs-meta-author-by">By</span>
-                                                                                        <a class="cs-meta-author-link url fn n" href="noticia.html?id=${item._id}">
-                                                                                            <span class="cs-meta-author-name">${aut}</span>
-                                                                                        </a>
-                                                                                    </div>
-                                                                                    <div class="cs-meta-date">${dt}</div>
+                                                                                    
                                                                                 </div>
                                                                                 <h2 class="cs-entry__title">
                                                                                     <a href="noticia.html?id=${item._id}">
-                                                                                        <span>${titulo}</span>
+                                                                                        <span  id="titul" style="font-size:19px; font-weight:bolder;" >${titulo}</span>
                                                                                     </a>
                                                                                 </h2>
+                                                                                <p class="cs-entry__subtitle " style="font-size:16px;     margin-top: 5px;
+" id="subt"> ${descricao}</p>
+
                                                                                 <div class="cs-entry__post-meta">
                                                                                     <div class="cs-meta-category">
                                                                                         <ul class="post-categories">
@@ -531,7 +520,28 @@
                                                             }
                                                         })
                      </script>
-                            <aside id="secondary" class="cs-widget-area cs-sidebar__area">
+
+                     <style>
+                        
+                        #titul{
+                            
+                            display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    
+                        }
+
+                        #subt{
+                            
+                            display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    
+                        }
+                     </style>
+                        <aside id="secondary" class="cs-widget-area cs-sidebar__area">
                                 <div class="cs-sidebar__inner">
                                     
                                     
@@ -592,7 +602,7 @@
 
                     
 
-                    <div class="widget block-7 widget_block">
+                    <div class="widget block-7 widget_block" style="border-bottom:0px solid var(--cs-color-border);">
                         <div class="wp-block-group is-layout-constrained wp-block-group-is-layout-constrained">
                             <div class="wp-block-group__inner-container">
                                 <h2 class="wp-block-heading">Publicidade</h2>
@@ -643,8 +653,8 @@
 
                     <div class="widget block-4 widget_block">
                         <div class="wp-block-group is-layout-constrained wp-block-group-is-layout-constrained">
-                            <div class="wp-block-group__inner-container">
-                                <h2 class="wp-block-heading">Para alimentar a sua curiosidade</h2>
+                            <div class="wp-block-group__inner-container" >
+                                
                                 <ul class="wp-block-latest-posts__list has-dates has-author is-style-cs-horizontal-layout wp-block-latest-posts">
                                 
                             <script type="module">
@@ -695,7 +705,7 @@
                                                     <a href="noticia.html?id=${item._id}">
                                                         <img loading="lazy" decoding="async" width="150" height="150" src="${imagemUrl}" alt="Mindful Living: Incorporating Meditation into Your Daily Routine"
                                                 style="height:80%"  /></a>
-                                        </div><a class="wp-block-latest-posts__post-title" href="noticia.html?id=${item._id}">${titulo}</a>
+                                        </div><a class="wp-block-latest-posts__post-title"  href="noticia.html?id=${item._id}" >${titulo}</a>
                                        
                                                 `;
                             
@@ -838,27 +848,45 @@ grid-template-columns: repeat(3, 1fr); /* Três colunas para telas maiores que 8
     .tech{
         
         
-        width:max-content;
+        width:80%;
         margin: auto;
                border-radius: 15px;
     }
     .div251{
-        width: max-content;
+        width: 100%;
         margin: auto;
     }
     .div251>article{
+        width: 100%;
         margin-top: 20px;
     }
+    
     #cstitle{
-        font-size: 1rem;
-        font-weight: bold;
+        color:black !important;
+        font-size: 19px;
+        font-weight: bolder;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow:hidden;
     }
     .div251>article>div{
-        max-width: 260px;
+        max-width: 100%;
     }
 }
 
 @media (min-width:500px) {
+    .tech{
+        width:max-content;
+    }
+    .div251>article{
+        width: max-content;
+       
+
+    }
+    .div251>article>div{
+        max-width: 260px;
+    }
     .div251{
         display:grid;
         grid-gap: 10px;
@@ -871,8 +899,8 @@ grid-template-columns: repeat(3, 1fr); /* Três colunas para telas maiores que 8
         grid-template-columns: repeat(2, 1fr) !important;
     }
     #cstitle{
-        font-size: 1rem;
-        font-weight: 600;
+        font-size: 19px;
+        font-weight: bolder;
     }
 
 }
@@ -904,7 +932,8 @@ grid-template-columns: repeat(3, 1fr); /* Três colunas para telas maiores que 8
         grid-template-columns: repeat(4, 1fr) !important ;
     }
     #cstitle{
-        font-size: 1.2rem;
+        font-size: 19px;
+        font-weight: bolder;
     }
    }
     
@@ -971,6 +1000,9 @@ grid-template-columns: repeat(3, 1fr); /* Três colunas para telas maiores que 8
                                         <span>${titulo}</span>
                                     </a>
                                 </h2>
+                                <p class="cs-entry__subtitle " style="font-size:16px;     margin-top: 5px;
+" id="subt"> ${descricao}</p>
+
                                
                             </div>
                         </div>
@@ -1048,11 +1080,15 @@ grid-template-columns: repeat(3, 1fr); /* Três colunas para telas maiores que 8
                                         
                                         <div class="cs-meta-date"></div>
                                     </div>
-                                    <h2 class="cs-entry__title" id="cstitle2" >
-                                        <a href="imprensa/noticia.html?id=${item._id}">
+                                    <h2 class="cs-entry__title" id="cstitle" >
+                                        <a href="noticia.html?id=${item._id}">
                                             <span >${titulo}</span>
                                         </a>
                                     </h2>
+                                    <p class="cs-entry__subtitle " style="font-size:16px;     margin-top: 5px;
+                                    " id="subt"> ${descricao}</p>
+                                    
+
                                    
                                 </div>
                             </div>
@@ -1078,16 +1114,17 @@ grid-template-columns: repeat(3, 1fr); /* Três colunas para telas maiores que 8
             .tech2{
                 padding: 20px;
                 
-                width:max-content;
+                width:90%;
                 margin: auto;
               
                 border-radius: 15px;
             }
             .div252{
-                width: max-content;
+                width: 100%;
                 margin: auto;
             }
             .div252>article{
+                width:100%;
                 margin-top: 10px;
             }
             #cstitle2{
@@ -1095,7 +1132,7 @@ grid-template-columns: repeat(3, 1fr); /* Três colunas para telas maiores que 8
                 font-weight: bold;
             }
             .div252>article>div{
-                max-width: 260px;
+                max-width: 100%;
             }
         }
         
@@ -1108,8 +1145,19 @@ grid-template-columns: repeat(3, 1fr); /* Três colunas para telas maiores que 8
                 margin: auto;
                 margin-bottom: 30px;
                 grid-template-columns: repeat(2, 1fr) !important;
-                color:white;
+            
             }
+            .tech2{
+        width:max-content;
+    }
+    .div252>article{
+        width: max-content;
+       
+
+    }
+    .div252>article>div{
+        max-width: 260px;
+    }
             
             #cstitle2{
                 font-size: 1rem;

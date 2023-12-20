@@ -206,7 +206,7 @@
                                 <div class="cs-page__header cs-page__header-has-description">
                                     <h1 class="cs-page__title">Marketing</h1>
                                     <div class="cs-page__archive-description">
-                                        <p>Explore um mundo fascinante de estratégias inovadoras, tendências pulsantes e insights valiosos que moldam o universo do marketing contemporâneo. Nesta seção dedicada, oferecemos uma jornada única através de artigos especializados, análises aprofundadas e entrevistas com líderes influentes da indústria.</p>
+                                        <p style="font-size:17px;">Explore um mundo fascinante de estratégias inovadoras, tendências pulsantes e insights valiosos que moldam o universo do marketing contemporâneo. Nesta seção dedicada, oferecemos uma jornada única através de artigos especializados, análises aprofundadas e entrevistas com líderes influentes da indústria.</p>
                                     </div>
                                     
                                 </div>
@@ -325,23 +325,19 @@
                                               <div class="cs-overlay-background">
                                                   <img width="512" height="384" src="${imagemUrl}" class="attachment-csco-thumbnail size-csco-thumbnail wp-post-image" alt="${titulo}" decoding="async" loading="lazy" />
                                               </div>
-                                              <a class="cs-overlay-link" href="noticia.html?id=${item._id}" title="${titulo}"></a>
+                                              <a class="cs-overlay-link" id=titul href="noticia.html?id=${item._id}" title="${titulo}"></a>
                                           </div>
                                           <div class="cs-entry__inner cs-entry__content">
                                               <div class="cs-entry__post-meta">
-                                                  <div class="cs-meta-author">
-                                                      <span class="cs-meta-author-by">By</span>
-                                                      <a class="cs-meta-author-link url fn n" href="#">
-                                                          <span class="cs-meta-author-name">${aut}</span>
-                                                      </a>
-                                                  </div>
-                                                  <div class="cs-meta-date">${dt}</div>
+                                                  
                                               </div>
-                                              <h2 class="cs-entry__title">
+                                              <h2 class="cs-entry__title" id="titul">
                                                   <a href="noticia.html?id=${item._id}">
                                                       <span>${titulo}</span>
                                                   </a>
                                               </h2>
+                                              <p class="cs-entry__subtitle " style="font-size:16px;     margin-top: 5px;
+                                    " id="subt"> ${descricao}</p>
                                               <div class="cs-entry__post-meta">
                                                   <div class="cs-meta-category">
                                                       <ul class="post-categories">
@@ -361,6 +357,26 @@
                           }
                       })
 </script>
+<style>
+                        
+    #titul{
+        
+        display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;
+
+    }
+
+    #subt{
+        
+        display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow: hidden;
+
+    }
+ </style>
             </main>
             <footer class="cs-footer">
                 <div class="cs-container">

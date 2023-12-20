@@ -206,7 +206,7 @@
                                 <div class="cs-page__header cs-page__header-has-description">
                                     <h1 class="cs-page__title">Nacional</h1>
                                     <div class="cs-page__archive-description">
-                                        <p>Bem-vindo à vitrine do talento e da cultura do nosso país. Nesta seção, celebramos o melhor do cenário nacional, oferecendo uma experiência única que destaca as realizações, a criatividade e as contribuições que fazem do nosso país um lugar especial.</p>
+                                        <p style="font-size:17px;">Bem-vindo à vitrine do talento e da cultura do nosso país. Nesta seção, celebramos o melhor do cenário nacional, oferecendo uma experiência única que destaca as realizações, a criatividade e as contribuições que fazem do nosso país um lugar especial.</p>
                                     </div>
 
                                 </div>
@@ -327,20 +327,15 @@ grid-template-columns: repeat(4, 1fr); /* Três colunas para telas maiores que 8
                                               <a class="cs-overlay-link" href="noticia.html?id=${item._id}" title="${titulo}"></a>
                                           </div>
                                           <div class="cs-entry__inner cs-entry__content">
-                                              <div class="cs-entry__post-meta">
-                                                  <div class="cs-meta-author">
-                                                      <span class="cs-meta-author-by">By</span>
-                                                      <a class="cs-meta-author-link url fn n" href="#">
-                                                          <span class="cs-meta-author-name">${aut}</span>
-                                                      </a>
-                                                  </div>
-                                                  <div class="cs-meta-date">${dt}</div>
-                                              </div>
-                                              <h2 class="cs-entry__title">
+                                            <div class="cs-entry__post-meta">
+                                                </div>
+                                                <h2 class="cs-entry__title" id="titul">
                                                   <a href="noticia.html?id=${item._id}">
                                                       <span>${titulo}</span>
                                                   </a>
                                               </h2>
+                                              <p class="cs-entry__subtitle " style="font-size:16px;     margin-top: 5px;
+                                    " id="subt"> ${descricao}</p>
                                               <div class="cs-entry__post-meta">
                                                   <div class="cs-meta-category">
                                                       <ul class="post-categories">
@@ -360,6 +355,26 @@ grid-template-columns: repeat(4, 1fr); /* Três colunas para telas maiores que 8
                           }
                       })
 </script>
+<style>
+                        
+    #titul{
+        
+        display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;
+
+    }
+
+    #subt{
+        
+        display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow: hidden;
+
+    }
+ </style>
             </main>
             <footer class="cs-footer">
                 <div class="cs-container">

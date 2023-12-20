@@ -206,7 +206,7 @@
                                 <div class="cs-page__header cs-page__header-has-description">
                                     <h1 class="cs-page__title">Insights</h1>
                                     <div class="cs-page__archive-description">
-                                        <p>Nesta seção, convidamos você a mergulhar em um oceano de perspicácia e sabedoria. Descubra insights profundos, análises perspicazes e reflexões que iluminam caminhos para um entendimento mais amplo e uma visão mais clara. </p>
+                                        <p style="font-size:17px;">Nesta seção, convidamos você a mergulhar em um oceano de perspicácia e sabedoria. Descubra insights profundos, análises perspicazes e reflexões que iluminam caminhos para um entendimento mais amplo e uma visão mais clara. </p>
                                     </div>
                                     
                                 </div>
@@ -242,6 +242,26 @@
     })
     .catch((err) => console.error(err));
                                 </script>
+<style>
+                        
+    #titul{
+        
+        display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;
+
+    }
+
+    #subt{
+        
+        display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow: hidden;
+
+    }
+ </style>
 
 <style>
     :root{
@@ -328,19 +348,14 @@ grid-template-columns: repeat(4, 1fr); /* Três colunas para telas maiores que 8
                                           </div>
                                           <div class="cs-entry__inner cs-entry__content">
                                               <div class="cs-entry__post-meta">
-                                                  <div class="cs-meta-author">
-                                                      <span class="cs-meta-author-by">By</span>
-                                                      <a class="cs-meta-author-link url fn n" href="#">
-                                                          <span class="cs-meta-author-name">${aut}</span>
-                                                      </a>
-                                                  </div>
-                                                  <div class="cs-meta-date">${dt}</div>
-                                              </div>
-                                              <h2 class="cs-entry__title">
+                                                </div>
+                                                <h2 class="cs-entry__title" id="titul">
                                                   <a href="noticia.html?id=${item._id}">
                                                       <span>${titulo}</span>
                                                   </a>
                                               </h2>
+                                              <p class="cs-entry__subtitle " style="font-size:16px;     margin-top: 5px;
+                                    " id="subt"> ${descricao}</p>
                                               <div class="cs-entry__post-meta">
                                                   <div class="cs-meta-category">
                                                       <ul class="post-categories">
