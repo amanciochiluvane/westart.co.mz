@@ -89,7 +89,7 @@
                 <div class="cs-offcanvas__bottombar">
                     <div class="cs-social">
                         <a class="cs-social__link" href="#" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-facebook-0001.webp" alt="Facebook" srcset="">                                </a>
-                        <a class="cs-social__link" href="#" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-twitter-new-0001.webp" alt="Twitter" srcset="">                                </a>
+                        <a class="cs-social__link" href="#" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-twitter-new-0001.png" alt="Twitter" srcset="">                                </a>
                         <a class="cs-social__link" href="#" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-instagram-0001.webp" alt="Instagram" srcset="">                                </a>
                         <a class="cs-social__link" href="#" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-linkedin-0003.png" alt="Linkedin" srcset="">                                </a>
                     </div>
@@ -199,21 +199,18 @@
                                         <div class="cs-entry__outer cs-entry__overlay cs-overlay-ratio cs-ratio-landscape-slider">
                                             <div class="cs-entry__inner cs-entry__thumbnail">
                                                 <div class="cs-overlay-background"> <img width="512" height="314" src="wp-content/uploads/sites/2/2023/11/demo-image-0201-512x314.webp" class="attachment-csco-thumbnail-uncropped size-csco-thumbnail-uncropped wp-post-image" alt=""
-                                                    decoding="async" fetchpriority="high" srcset="https://swyft.codesupply.co/lifestyle/wp-content/uploads/sites/2/2023/11/demo-image-0201-512x314.webp 512w, https://swyft.codesupply.co/lifestyle/wp-content/uploads/sites/2/2023/11/demo-image-0201-300x184.webp 300w, https://swyft.codesupply.co/lifestyle/wp-content/uploads/sites/2/2023/11/demo-image-0201-1024x627.webp 1024w, https://swyft.codesupply.co/lifestyle/wp-content/uploads/sites/2/2023/11/demo-image-0201-768x470.webp 768w, https://swyft.codesupply.co/lifestyle/wp-content/uploads/sites/2/2023/11/demo-image-0201-1536x941.webp 1536w, https://swyft.codesupply.co/lifestyle/wp-content/uploads/sites/2/2023/11/demo-image-0201-2048x1254.webp 2048w, https://swyft.codesupply.co/lifestyle/wp-content/uploads/sites/2/2023/11/demo-image-0201-920x564.webp 920w, https://swyft.codesupply.co/lifestyle/wp-content/uploads/sites/2/2023/11/demo-image-0201-1600x980.webp 1600w, https://swyft.codesupply.co/lifestyle/wp-content/uploads/sites/2/2023/11/demo-image-0201-3200x1960.webp 3200w, https://swyft.codesupply.co/lifestyle/wp-content/uploads/sites/2/2023/11/demo-image-0201-1920x1176.webp 1920w, https://swyft.codesupply.co/lifestyle/wp-content/uploads/sites/2/2023/11/demo-image-0201.webp 3840w"
-                                                     /> <img width="1600" height="980" id="hig" src="wp-content/uploads/sites/2/2023/11/demo-image-0201-1600x980.webp" class="attachment-csco-large-uncropped size-csco-large-uncropped wp-post-image"
-                                                     alt="Evolving Workspaces: The Rise of the Hybrid Work Trend" decoding="async" srcset="" /></div>
+                                                    decoding="async" fetchpriority="high" srcset=""
+                                                     /> <img width="1600" height="980" id="hig" src="" class="attachment-csco-large-uncropped size-csco-large-uncropped wp-post-image"
+                                                     alt="" decoding="async" srcset="" /></div>
                                             </div>
                                             <div class="cs-entry__inner cs-entry__content cs-overlay-content" data-swiper-parallax-x="-400" data-swiper-parallax-duration="800">
-                                                <div class="cs-entry__post-meta">
-                                                    <div class="cs-meta-author"><span class="cs-meta-author-by">Por</span><a class="cs-meta-author-link url fn n" href="#"><span class="cs-meta-author-name">Joanna Wellick</span></a></div>
-                                                    <div class="cs-meta-date">May 8, 2023</div>
-                                                </div>
-                                                <h2 class="cs-entry__title"> Evolving Workspaces: The Rise of the Hybrid Work Trend</h2>
-                                                <div class="cs-entry__subtitle"> Leveraging technology in daily routines and work, individuals can now experience a seamless blend of business, work, and leisure.</div>
+                                               
+                                                <h2 class="cs-entry__title"> </h2>
+                                                
                                                 <div class="cs-entry__post-meta">
                                                     <div class="cs-meta-category">
                                                         <ul class="post-categories">
-                                                            <li><a class="cs-catg" href="#" rel="category tag">Trends</a></li>
+                                                            <li><a class="cs-catg" href="#" rel="category tag"></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -291,12 +288,10 @@
                                   
                                   
                                   const thumbnail3 = document.querySelector('#hig');
-                                  const author = document.querySelector('.cs-meta-author-name');
                                   
-                                  const date = document.querySelector('.cs-meta-date');
                                   const title = document.querySelector('.cs-entry__title');
                                   const categoria=document.querySelector('.cs-catg');
-                                  const subtitle = document.querySelector('.cs-entry__subtitle');
+                                 
                                    
                                   // Atualiza os elementos HTML com os dados do item
                                   thumbnail.src = builder.image(item?.imagem?.asset?._ref);
@@ -307,10 +302,9 @@
                                   //thumbnail3.srcset = builder.image(item?.imagem?.asset?._ref);
                                   
                                   thumbnail.alt = item.titulo;
-                                  author.textContent = item.autor;
-                                  date.textContent = new Date(item.data).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                                 
                                   title.textContent = item.titulo;
-                                  subtitle.textContent = item.descricao;
+                                  
                                   categoria.textContent=item.category;
                               
                         
@@ -421,11 +415,11 @@
 
         // Aplique estilos adicionais com base nas informações do bloco
         if (block.style === 'h3') {
-            blockElement.style.fontWeight = 'bold';
+            blockElement.style.fontWeight = '400';
             blockElement.style.fontSize = '19px';
             blockElement.style.marginBottom = '10px';
         } else if (block.style === 'h4') {
-            blockElement.style.fontWeight = 'bold';
+            blockElement.style.fontWeight = '600';
             blockElement.style.fontSize = '18px';
             blockElement.style.marginBottom = '10px';
         } else if (block.style === 'blockquote') {
@@ -494,9 +488,9 @@ else{
                                                 <div class="cs-entry__post-meta">
                                                     <div class="cs-meta-author"><span class="cs-meta-author-by">  Por</span>
                                                         <a class="cs-meta-author-link url fn n" href="#">
-                                                            <picture class="cs-meta-author-avatar"><img alt='' src='https://secure.gravatar.com/avatar/414e73a3de9d6d5e3d67fc46458b87a8?s=36&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/414e73a3de9d6d5e3d67fc46458b87a8?s=72&#038;d=mm&#038;r=g 2x'
+                                                            <picture class="cs-meta-author-avatar"><img alt='' src=''
                                                                 class='avatar avatar-36 photo' height='36' width='36' loading='lazy' decoding='async' /></picture>
-                                                                <span class="cs-meta-author-name" id="ttu">Liam Anderson</span></a>
+                                                                <span class="cs-meta-author-name" id="ttu"></span></a>
                                                     </div>
                                                 </div>
                                                 <div class="cs-entry__footer-date">
@@ -517,12 +511,16 @@ else{
                                     
                                     font-weight: var(--cs-font-post-meta-weight);
                                     ">Compartilhar artigo</span>
-<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-    
-    <a class="a2a_button_facebook"></a>
-    <a class="a2a_button_linkedin"></a>
-    <a class="a2a_button_whatsapp"></a>
+
+
+    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+        <a class="a2a_button_facebook" class="cs-social__link" target="_blank"> <img  style=" height:29px; width:29px; filter: var(--cs-color-invert-social);" src="wp-content/uploads/sites/2/2023/10/demo-icon-facebook-0001.webp" alt="Facebook" srcset="">                                </a>
+                                       </a>
+        <a class="a2a_button_whatsapp"  target="_blank"> <img  style=" height:29px; width:29px; filter: var(--cs-color-invert-social);" src="wp-content/uploads/sites/2/2023/10/demo-icon-twitter-new-0001.png" alt="Whatsapp" srcset="">                                </a>
+        <a class="a2a_button_linkedin"  target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-linkedin-0003.png" style=" height:29px; width:29px; filter: var(--cs-color-invert-social);" alt="Linkedin" srcset="">                                </a>
     </div>
+
+    
     <script async src="https://static.addtoany.com/menu/page.js"></script>
     <!-- AddToAny END -->
                                     <section class="cs-read-next">
@@ -585,8 +583,7 @@ else{
                 result.forEach((item) => {
                     const titulo = item.titulo;
                     const imagemUrl = builder.image(item?.imagem?.asset?._ref);
-                    const dt = new Date(item.data).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                    const aut = item.autor;
+                    
                     const categoria = item.category;
 
                     // Create HTML elements dynamically
@@ -602,15 +599,7 @@ else{
                                 <a class="cs-overlay-link" href="noticia.html?id=${item._id}" title="${titulo}"></a>
                             </div>
                             <div class="cs-entry__inner cs-entry__content">
-                                <div class="cs-entry__post-meta">
-                                    <div class="cs-meta-author">
-                                        <span class="cs-meta-author-by">By</span>
-                                        <a class="cs-meta-author-link url fn n" href="#">
-                                            <span class="cs-meta-author-name">${aut}</span>
-                                        </a>
-                                    </div>
-                                    <div class="cs-meta-date">${dt}</div>
-                                </div>
+                               
                                 <h2 class="cs-entry__title">
                                     <a href="noticia.html?id=${item._id}">
                                         <span>${titulo}</span>
@@ -695,8 +684,8 @@ else{
                                             
                                             <div class="wp-block-latest-posts__featured-image alignleft">
                                                 <a href="noticia.html?id=${item._id}">
-                                                    <img loading="lazy" decoding="async" width="150" height="150" src="${imagemUrl}" alt=""
-                                            style="height:80%"  /></a>
+                                                    <img loading="lazy" decoding="async" width="150"  src="${imagemUrl}" alt=""
+                                            style="height:70%;"  /></a>
                                     </div><a class="wp-block-latest-posts__post-title" href="noticia.html?id=${item._id}">${titulo}</a>
                                  
                                             `;
@@ -755,7 +744,7 @@ else{
                     <div class="cs-footer__col cs-col-right">
                         <div class="cs-social">
                             <a class="cs-social__link" href="#" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-facebook-0001.webp" alt="Facebook" srcset="">                                </a>
-                            <a class="cs-social__link" href="#" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-twitter-new-0001.webp" alt="Twitter" srcset="">                                </a>
+                            <a class="cs-social__link" href="#" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-twitter-new-0001.png" alt="Twitter" srcset="">                                </a>
                             <a class="cs-social__link" href="#" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-instagram-0001.webp" alt="Instagram" srcset="">                                </a>
                             <a class="cs-social__link" href="#" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-linkedin-0003.png" alt="Linkedin" srcset="">                                </a>
                         </div>
