@@ -140,15 +140,17 @@ grid-template-columns: repeat(4, 1fr); /* Três colunas para telas maiores que 8
                             </div>
                         </div>
                         <div class="cs-header__col cs-col-center">
-                             <nav class="cs-header__nav">
+                            <nav class="cs-header__nav">
                                 <ul id="menu-primary-1" class="cs-header__nav-inner">
                                     <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-7" style="position:static"><a href="#" class="menu-item-without-link"><span><span>Destaques</span></span></a>
-                                        <ul class="sub-menu" style="width:80vw; margin-left:10vw; margin-top:13px;display:flex;" >
+                                        <ul class="sub-menu" style="width:80vw; height:380px; margin-left:10vw; margin-top:13px;display:flex;" >
                                             <li style="margin-top: 50px;" id="links">
                                                 <div class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-14">
                                                 
                                                     <a href="Internacional.html" aria-current="page" onmouseover="toggleContent('internacional')"  ><span>Internacional</span></a></div>
                                                 <div class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15"><a href="Nacional.html" onmouseover="toggleContent('nacional')"  ><span>Nacional</span></a></div>
+
+                                                <div class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15"><a href="Insights.html" onmouseover="toggleContent('insights')"  ><span>Insights</span></a></div>
                                             </li>
                                             
                                            <li>
@@ -216,11 +218,10 @@ grid-template-columns: repeat(4, 1fr); /* Três colunas para telas maiores que 8
                                                                                     <a class="cs-overlay-link" href="noticia.html?id=${item._id}" title="${titulo}"></a>
                                                                                 </div>
                                                                                 <div class="cs-entry__inner cs-entry__content">
-                                                                                    <div class="cs-entry__post-meta">
-                                                                                    </div>
-                                                                                    <h2 class="cs-entry__title" id="titul">
-                                                                                        <a href="noticia.html?id=${item._id}">
-                                                                                            <span style="font-weight:600">${titulo}</span>
+                                                                                  
+                                                                                    <h2 style="margin-top:5px; text-align:left;"class="cs-entry__title" id="titul">
+                                                                                        <a href="noticia.html?id=${item._id}" style="padding:0;">
+                                                                                            <span style="font-weight:600; ">${titulo}</span>
                                                                                         </a>
                                                                                     </h2>
                                                                                     
@@ -297,11 +298,89 @@ grid-template-columns: repeat(4, 1fr); /* Três colunas para telas maiores que 8
                                                                                     <a class="cs-overlay-link" href="noticia.html?id=${item._id}" title="${titulo}"></a>
                                                                                 </div>
                                                                                 <div class="cs-entry__inner cs-entry__content">
-                                                                                    <div class="cs-entry__post-meta">
+                                                                                  
+                                                                                    <h2 style="margin-top:5px; text-align:left;"class="cs-entry__title" id="titul">
+                                                                                        <a href="noticia.html?id=${item._id}" style="padding:0;">
+                                                                                            <span style="font-weight:600; ">${titulo}</span>
+                                                                                        </a>
+                                                                                    </h2>
+                                                                                    
+                                                                                   
+                                                                                </div>
+                                                                            </div>
+                                                                        `;
+                                                
+                                                                        // Append the news card to the news container
+                                                                        newsContainer.appendChild(newsCard);
+                                                                    });
+                                                                }
+                                                            });
+                                                    });
+                                                </script>
+                                            </div>
+
+                                            <div class="cs-posts-area cs-posts-area-posts" id="insights"  style="padding:50px">
+                                                <div class="cs-posts-area__outer">
+                                                    <div class="cs-posts-area__main cs-archive-grid  cs-posts-area__archive cs-posts-area__grid" id="insights-container">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <script type="module">
+                                                    import imageUrlBuilder from 'https://cdn.skypack.dev/@sanity/image-url';
+                                                
+                                                    document.addEventListener('DOMContentLoaded', function () {
+                                                        const builder = imageUrlBuilder({
+                                                            projectId: 'bi327w6t',
+                                                            dataset: 'production',
+                                                            apiVersion: '2021-10-21',
+                                                            useCdn: true,
+                                                        });
+                                                
+                                                        let PROJECT_ID = "bi327w6t";
+                                                        let DATASET = "production";
+                                                        let QUERY = encodeURIComponent('*[_type == "destaque" && category == "Insights"]');
+                                                
+                                                        let PROJECT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
+                                                
+                                                        // fetch the content
+                                                        fetch(PROJECT_URL)
+                                                            .then((res) => res.json())
+                                                            .then(({ result }) => {
+                                                                // Verifica se há pelo menos um resultado
+                                                                if (result.length > 0) {
+                                                                    // Sort the results in descending order based on the 'data' property (most recent first)
+                                                                    result.sort((a, b) => new Date(b.data) - new Date(a.data));
+                                                
+                                                                    // Extrai as informações do primeiro item (o mais recente)
+                                                                    const recentItems = result.slice(0,3);
+                                                                    const newsContainer = document.getElementById('insights-container');
+                                                                    console.log(newsContainer);
+                                                
+                                                                    recentItems.forEach((item) => {
+                                                                        const titulo = item.titulo;
+                                                                        const descricao = item.descricao;
+                                                                        const imagemUrl = builder.image(item?.imagem?.asset?._ref);
+                                                                        const dt = new Date(item.data).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                                                                        const aut = item.autor;
+                                                                        const categoria = item.category;
+                                                
+                                                                        // Criação de elementos HTML dinâmicos
+                                                                        const newsCard = document.createElement("article");
+                                                                        newsCard.classList.add('post-2098', 'post', 'type-post', 'status-publish', 'format-standard', 'has-post-thumbnail', 'category-lifestyle', 'cs-entry');
+                                                
+                                                                        newsCard.innerHTML = `
+                                                                            <div class="cs-entry__outer">
+                                                                                <div class="cs-entry__inner cs-entry__thumbnail cs-entry__overlay cs-overlay-ratio cs-ratio-landscape" data-scheme="inverse">
+                                                                                    <div class="cs-overlay-background">
+                                                                                        <img width="512" height="384" src="${imagemUrl}" class="attachment-csco-thumbnail size-csco-thumbnail wp-post-image" alt="${titulo}" decoding="async" loading="lazy" />
                                                                                     </div>
-                                                                                    <h2 class="cs-entry__title" id="titul">
-                                                                                        <a href="noticia.html?id=${item._id}">
-                                                                                            <span style="font-weight:600">${titulo}</span>
+                                                                                    <a class="cs-overlay-link" href="noticia.html?id=${item._id}" title="${titulo}"></a>
+                                                                                </div>
+                                                                                <div class="cs-entry__inner cs-entry__content">
+                                                                                  
+                                                                                    <h2 style="margin-top:5px; text-align:left;"class="cs-entry__title" id="titul">
+                                                                                        <a href="noticia.html?id=${item._id}" style="padding:0;">
+                                                                                            <span style="font-weight:600; ">${titulo}</span>
                                                                                         </a>
                                                                                     </h2>
                                                                                     
@@ -327,7 +406,7 @@ grid-template-columns: repeat(4, 1fr); /* Três colunas para telas maiores que 8
                                     <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2005"><a href="Vendas.html"><span><span>Vendas</span></span></a></li>
 
                                     <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2006"><a href="Tecnologia.html"><span><span>Tecnologia</span></span></a></li>
-                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2005"><a href="Insights.html"><span><span>Insights</span></span></a></li>
+                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2005"><a href="Negocios.html"><span><span>Negócios</span></span></a></li>
                                     
                                 </ul>
                                
@@ -339,11 +418,11 @@ grid-template-columns: repeat(4, 1fr); /* Três colunas para telas maiores que 8
                                    
                                         const internacionalContainer = document.getElementById('internacional');
                                         const nacionalContainer = document.getElementById('nacional');
-                            
+                                        const insightsContainer = document.getElementById('insights');
                                         // Oculta ambas as divs
                                         internacionalContainer.style.display = 'none';
                                         nacionalContainer.style.display = 'none';
-                            
+                                        insightsContainer.style.display = 'none';
                                         // Exibe a div selecionada
                                         document.getElementById(selectedId).style.display = 'block';
                                     }
@@ -356,7 +435,7 @@ grid-template-columns: repeat(4, 1fr); /* Três colunas para telas maiores que 8
                              
                             </script>
                                 
-                            </nav>                                  
+                            </nav>
                         </div>
                         <div class="cs-header__col cs-col-right"> <span class="cs-site-scheme-toggle cs-header__scheme-toggle" role="button" aria-label="Dark mode toggle button"> <span class="cs-header__scheme-toggle-icons"> <i class="cs-header__scheme-toggle-icon cs-icon cs-icon-light-mode"></i> <i class="cs-header__scheme-toggle-icon cs-icon cs-icon-dark-mode"></i> </span>                            </span> <span class="cs-header__search-toggle" role="button" aria-label="Search"> <i class="cs-icon cs-icon-search"></i> </span> </div>
                     </div>

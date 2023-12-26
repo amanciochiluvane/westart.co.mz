@@ -446,7 +446,7 @@
                                     <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2005"><a href="Vendas.html"><span><span>Vendas</span></span></a></li>
 
                                     <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2006"><a href="Tecnologia.html"><span><span>Tecnologia</span></span></a></li>
-                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2005"><a href="Insights.html"><span><span>Insights</span></span></a></li>
+                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2005"><a href="Negocios.html"><span><span>Negócios</span></span></a></li>
                                     
                                 </ul>
                                
@@ -700,20 +700,7 @@
                                     </div>
                                 </div>
                                 
-                                <div id="primary" class="cs-content-area">
-                                    <div class="cs-posts-area cs-posts-area-posts">
-                                        <div class="cs-posts-area__outer">
-                                            <div class="cs-posts-area__main cs-archive-grid  cs-posts-area__home cs-posts-area__grid">
-                                                
                                
-                                                
-                                                 
-                                                      
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
                             </div>
                                             
                       <script type="module">
@@ -742,7 +729,7 @@
                                                                 result.sort((a, b) => new Date(b.data) - new Date(a.data));
                                                 
                                                                 // Extrai as informações do primeiro item (o mais recente)
-                                                                const recentItems = result;
+                                                                const recentItems = result.slice(0,12);
                                                                 const newsContainers = document.getElementsByClassName('cs-posts-area__main cs-archive-grid  cs-posts-area__home cs-posts-area__grid');
                                                                 
                                                 
@@ -1232,7 +1219,7 @@ grid-template-columns: repeat(3, 1fr); /* Três colunas para telas maiores que 8
 
     let PROJECT_ID = "bi327w6t";
     let DATASET = "production";
-    let QUERY = encodeURIComponent('*[_type == "destaque"]');
+    let QUERY = encodeURIComponent('*[_type == "destaque" && category=="Tecnologia"]');
 
     let PROJECT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
 
@@ -1317,7 +1304,7 @@ grid-template-columns: repeat(3, 1fr); /* Três colunas para telas maiores que 8
     
         let PROJECT_ID = "bi327w6t";
         let DATASET = "production";
-        let QUERY = encodeURIComponent('*[_type == "destaque"]');
+        let QUERY = encodeURIComponent('*[_type == "destaque" && category=="Marketing"]');
     
         let PROJECT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
     
