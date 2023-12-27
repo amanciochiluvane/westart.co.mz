@@ -124,9 +124,9 @@
     <div class="cs-offcanvas">
         <div class="cs-offcanvas__header">
             <div class="cs-logo">
-                <a class="cs-header__logo cs-logo-default " href="index.html"> <img src="westart-logo-filled-default-horizontal.1.png" alt="Lifestyle" srcset=""
+                <a class="cs-header__logo cs-logo-default " href="index.html"> <img src="westart-logo-filled-default-horizontal.1.png" alt="westart" srcset=""
                     style="width:150px; height:auto"> </a>
-                <a class="cs-header__logo cs-logo-dark " href="index.html"> <img src="westart-logo-filled-default-horizontal.png" alt="Lifestyle" srcset=""
+                <a class="cs-header__logo cs-logo-dark " href="index.html"> <img src="westart-logo-filled-default-horizontal.png" alt="westart" srcset=""
                     style="width:150px; height:auto"> </a>
             </div>
             <nav class="cs-offcanvas__nav"> <span class="cs-offcanvas__toggle" role="button" aria-label="Close mobile menu button"><i class="cs-icon cs-icon-x"></i></span></nav>
@@ -173,9 +173,9 @@
                     <div class="cs-header__inner cs-header__inner-desktop">
                         <div class="cs-header__col cs-col-left">
                             <div class="cs-logo">
-                                <a class="cs-header__logo cs-logo-default " href="index.html"> <img src="westart-logo-filled-default-horizontal.1.png"  alt="Lifestyle" 
+                                <a class="cs-header__logo cs-logo-default " href="index.html"> <img src="westart-logo-filled-default-horizontal.1.png"  alt="westart" 
                                     style="width:150px; height:auto"> </a>
-                                <a class="cs-header__logo cs-logo-dark " href="index.html"> <img src="westart-logo-filled-default-horizontal.png" alt="Lifestyle"  style="width:150px; height:auto"
+                                <a class="cs-header__logo cs-logo-dark " href="index.html"> <img src="westart-logo-filled-default-horizontal.png" alt="westart"  style="width:150px; height:auto"
                                    > </a>
                             </div>
                         </div>
@@ -205,78 +205,7 @@
                                                         
                                                     </div>
                                                 </div>
-                                                <script type="module">
-                                                    import imageUrlBuilder from 'https://cdn.skypack.dev/@sanity/image-url';
-                                                
-                                                    document.addEventListener('DOMContentLoaded', function () {
-                                                        const builder = imageUrlBuilder({
-                                                            projectId: 'bi327w6t',
-                                                            dataset: 'production',
-                                                            apiVersion: '2021-10-21',
-                                                            useCdn: true,
-                                                        });
-                                                
-                                                        let PROJECT_ID = "bi327w6t";
-                                                        let DATASET = "production";
-                                                        let QUERY = encodeURIComponent('*[_type == "destaque" && destaques == "Nacional"]');
-                                                
-                                                        let PROJECT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
-                                                
-                                                        // fetch the content
-                                                        fetch(PROJECT_URL)
-                                                            .then((res) => res.json())
-                                                            .then(({ result }) => {
-                                                                // Verifica se há pelo menos um resultado
-                                                                if (result.length > 0) {
-                                                                    // Sort the results in descending order based on the 'data' property (most recent first)
-                                                                    result.sort((a, b) => new Date(b.data) - new Date(a.data));
-                                                
-                                                                    // Extrai as informações do primeiro item (o mais recente)
-                                                                    const recentItems = result.slice(0,3);
-                                                                   
-                                                                    const newsContainer = document.getElementById('nacional-container');
-                                                                    console.log(newsContainer);
-                                                
-                                                                    recentItems.forEach((item) => {
-                                                                        const titulo = item.titulo;
-                                                                        const descricao = item.descricao;
-                                                                        const imagemUrl = builder.image(item?.imagem?.asset?._ref);
-                                                                        const dt = new Date(item.data).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                                                                        const aut = item.autor;
-                                                                        const categoria = item.category;
-                                                
-                                                                        // Criação de elementos HTML dinâmicos
-                                                                        const newsCard = document.createElement("article");
-                                                                        newsCard.classList.add('post-2098', 'post', 'type-post', 'status-publish', 'format-standard', 'has-post-thumbnail', 'category-lifestyle', 'cs-entry');
-                                                
-                                                                        newsCard.innerHTML = `
-                                                                            <div class="cs-entry__outer">
-                                                                                <div class="cs-entry__inner cs-entry__thumbnail cs-entry__overlay cs-overlay-ratio cs-ratio-landscape" data-scheme="inverse">
-                                                                                    <div class="cs-overlay-background">
-                                                                                        <img width="512" height="384" src="${imagemUrl}" class="attachment-csco-thumbnail size-csco-thumbnail wp-post-image" alt="${titulo}" decoding="async" loading="lazy" />
-                                                                                    </div>
-                                                                                    <a class="cs-overlay-link" href="noticia.html?id=${item._id}" title="${titulo}"></a>
-                                                                                </div>
-                                                                                <div class="cs-entry__inner cs-entry__content">
-                                                                                  
-                                                                                    <h2 style="margin-top:5px; text-align:left;"class="cs-entry__title" id="titul">
-                                                                                        <a href="noticia.html?id=${item._id}" style="padding:0;">
-                                                                                            <span style="font-weight:600; ">${titulo}</span>
-                                                                                        </a>
-                                                                                    </h2>
-                                                                                    
-                                                                                   
-                                                                                </div>
-                                                                            </div>
-                                                                        `;
-                                                
-                                                                        // Append the news card to the news container
-                                                                        newsContainer.appendChild(newsCard);
-                                                                    });
-                                                                }
-                                                            });
-                                                    });
-                                                </script>
+                                                <script type="module" src="js/Nacional1.js"></script>
                                                 
                                             </div>
 
@@ -286,77 +215,7 @@
                                                         
                                                     </div>
                                                 </div>
-                                                <script type="module">
-                                                    import imageUrlBuilder from 'https://cdn.skypack.dev/@sanity/image-url';
-                                                
-                                                    document.addEventListener('DOMContentLoaded', function () {
-                                                        const builder = imageUrlBuilder({
-                                                            projectId: 'bi327w6t',
-                                                            dataset: 'production',
-                                                            apiVersion: '2021-10-21',
-                                                            useCdn: true,
-                                                        });
-                                                
-                                                        let PROJECT_ID = "bi327w6t";
-                                                        let DATASET = "production";
-                                                        let QUERY = encodeURIComponent('*[_type == "destaque" && destaques == "Internacional"]');
-                                                
-                                                        let PROJECT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
-                                                
-                                                        // fetch the content
-                                                        fetch(PROJECT_URL)
-                                                            .then((res) => res.json())
-                                                            .then(({ result }) => {
-                                                                // Verifica se há pelo menos um resultado
-                                                                if (result.length > 0) {
-                                                                    // Sort the results in descending order based on the 'data' property (most recent first)
-                                                                    result.sort((a, b) => new Date(b.data) - new Date(a.data));
-                                                
-                                                                    // Extrai as informações do primeiro item (o mais recente)
-                                                                    const recentItems = result.slice(0,3);
-                                                                    const newsContainer = document.getElementById('internacional-container');
-                                                                    console.log(newsContainer);
-                                                
-                                                                    recentItems.forEach((item) => {
-                                                                        const titulo = item.titulo;
-                                                                        const descricao = item.descricao;
-                                                                        const imagemUrl = builder.image(item?.imagem?.asset?._ref);
-                                                                        const dt = new Date(item.data).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                                                                        const aut = item.autor;
-                                                                        const categoria = item.category;
-                                                
-                                                                        // Criação de elementos HTML dinâmicos
-                                                                        const newsCard = document.createElement("article");
-                                                                        newsCard.classList.add('post-2098', 'post', 'type-post', 'status-publish', 'format-standard', 'has-post-thumbnail', 'category-lifestyle', 'cs-entry');
-                                                
-                                                                        newsCard.innerHTML = `
-                                                                            <div class="cs-entry__outer">
-                                                                                <div class="cs-entry__inner cs-entry__thumbnail cs-entry__overlay cs-overlay-ratio cs-ratio-landscape" data-scheme="inverse">
-                                                                                    <div class="cs-overlay-background">
-                                                                                        <img width="512" height="384" src="${imagemUrl}" class="attachment-csco-thumbnail size-csco-thumbnail wp-post-image" alt="${titulo}" decoding="async" loading="lazy" />
-                                                                                    </div>
-                                                                                    <a class="cs-overlay-link" href="noticia.html?id=${item._id}" title="${titulo}"></a>
-                                                                                </div>
-                                                                                <div class="cs-entry__inner cs-entry__content">
-                                                                                  
-                                                                                    <h2 style="margin-top:5px; text-align:left;"class="cs-entry__title" id="titul">
-                                                                                        <a href="noticia.html?id=${item._id}" style="padding:0;">
-                                                                                            <span style="font-weight:600; ">${titulo}</span>
-                                                                                        </a>
-                                                                                    </h2>
-                                                                                    
-                                                                                   
-                                                                                </div>
-                                                                            </div>
-                                                                        `;
-                                                
-                                                                        // Append the news card to the news container
-                                                                        newsContainer.appendChild(newsCard);
-                                                                    });
-                                                                }
-                                                            });
-                                                    });
-                                                </script>
+                                                <script type="module" src="js/Internacional1.js"></script>
                                             </div>
 
                                             <div class="cs-posts-area cs-posts-area-posts" id="insights"  style="padding:50px">
@@ -365,77 +224,7 @@
                                                         
                                                     </div>
                                                 </div>
-                                                <script type="module">
-                                                    import imageUrlBuilder from 'https://cdn.skypack.dev/@sanity/image-url';
-                                                
-                                                    document.addEventListener('DOMContentLoaded', function () {
-                                                        const builder = imageUrlBuilder({
-                                                            projectId: 'bi327w6t',
-                                                            dataset: 'production',
-                                                            apiVersion: '2021-10-21',
-                                                            useCdn: true,
-                                                        });
-                                                
-                                                        let PROJECT_ID = "bi327w6t";
-                                                        let DATASET = "production";
-                                                        let QUERY = encodeURIComponent('*[_type == "destaque" && category == "Insights"]');
-                                                
-                                                        let PROJECT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
-                                                
-                                                        // fetch the content
-                                                        fetch(PROJECT_URL)
-                                                            .then((res) => res.json())
-                                                            .then(({ result }) => {
-                                                                // Verifica se há pelo menos um resultado
-                                                                if (result.length > 0) {
-                                                                    // Sort the results in descending order based on the 'data' property (most recent first)
-                                                                    result.sort((a, b) => new Date(b.data) - new Date(a.data));
-                                                
-                                                                    // Extrai as informações do primeiro item (o mais recente)
-                                                                    const recentItems = result.slice(0,3);
-                                                                    const newsContainer = document.getElementById('insights-container');
-                                                                    console.log(newsContainer);
-                                                
-                                                                    recentItems.forEach((item) => {
-                                                                        const titulo = item.titulo;
-                                                                        const descricao = item.descricao;
-                                                                        const imagemUrl = builder.image(item?.imagem?.asset?._ref);
-                                                                        const dt = new Date(item.data).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                                                                        const aut = item.autor;
-                                                                        const categoria = item.category;
-                                                
-                                                                        // Criação de elementos HTML dinâmicos
-                                                                        const newsCard = document.createElement("article");
-                                                                        newsCard.classList.add('post-2098', 'post', 'type-post', 'status-publish', 'format-standard', 'has-post-thumbnail', 'category-lifestyle', 'cs-entry');
-                                                
-                                                                        newsCard.innerHTML = `
-                                                                            <div class="cs-entry__outer">
-                                                                                <div class="cs-entry__inner cs-entry__thumbnail cs-entry__overlay cs-overlay-ratio cs-ratio-landscape" data-scheme="inverse">
-                                                                                    <div class="cs-overlay-background">
-                                                                                        <img width="512" height="384" src="${imagemUrl}" class="attachment-csco-thumbnail size-csco-thumbnail wp-post-image" alt="${titulo}" decoding="async" loading="lazy" />
-                                                                                    </div>
-                                                                                    <a class="cs-overlay-link" href="noticia.html?id=${item._id}" title="${titulo}"></a>
-                                                                                </div>
-                                                                                <div class="cs-entry__inner cs-entry__content">
-                                                                                  
-                                                                                    <h2 style="margin-top:5px; text-align:left;"class="cs-entry__title" id="titul">
-                                                                                        <a href="noticia.html?id=${item._id}" style="padding:0;">
-                                                                                            <span style="font-weight:600; ">${titulo}</span>
-                                                                                        </a>
-                                                                                    </h2>
-                                                                                    
-                                                                                   
-                                                                                </div>
-                                                                            </div>
-                                                                        `;
-                                                
-                                                                        // Append the news card to the news container
-                                                                        newsContainer.appendChild(newsCard);
-                                                                    });
-                                                                }
-                                                            });
-                                                    });
-                                                </script>
+                                                 <script type="module" src="js/Insights1.js"></script>
                                             </div>
                                            </li>
                                             
@@ -622,60 +411,7 @@
                             </div>
                         </section>
 
-                        <script type="module">
-                            import imageUrlBuilder from 'https://cdn.skypack.dev/@sanity/image-url';
-                        
-                            const builder = imageUrlBuilder({
-                                projectId: 'bi327w6t',
-                                dataset: 'production',
-                                apiVersion: '2021-10-21',
-                                useCdn: true,
-                            });
-                        
-                            let PROJECT_ID = "bi327w6t";
-                            let DATASET = "production";
-                            let QUERY = encodeURIComponent('*[_type == "destaque"]');
-                        
-                            let PROJECT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
-                        
-                            // fetch the content
-                            fetch(PROJECT_URL)
-                                .then((res) => res.json())
-                                .then(({ result }) => {
-                                    // Verifica se há pelo menos um resultado
-                                    if (result.length > 0) {
-                                        // Sort the results in descending order based on the 'data' property (most recent first)
-                                        result.sort((a, b) => new Date(b.data) - new Date(a.data));
-                        
-                                        // Loop sobre os itens em destaque
-                                        result.slice(0, 3).forEach((item, index) => {
-                                            const slide = document.querySelector(`.cs-hero-type-1__item:nth-child(${index + 1})`);
-                                            const thumbnailLink = slide.querySelector('.cs-overlay-link');
-                                            const thumbnail = slide.querySelector('.cs-overlay-background img');
-                                            const thumbnail3 = slide.querySelector('#hig');
-                                           
-                                            
-                                            const title = slide.querySelector('.cs-entry__title');
-                                            const categoria = slide.querySelector('.cs-catg');
-                                            const subtitle = slide.querySelector('.cs-entry__subtitle');
-                        
-                                            // Atualiza os elementos HTML com os dados do item
-                                            thumbnail.src = builder.image(item?.imagem?.asset?._ref);
-                                            thumbnail.srcset = builder.image(item?.imagem?.asset?._ref);
-                                            thumbnail3.src = builder.image(item?.imagem?.asset?._ref);
-                                            thumbnail.alt = item.titulo;
-                                            
-                                            title.textContent = item.titulo;
-                                            subtitle.textContent = item.descricao;
-                                            categoria.textContent = item.category;
-                        
-                                            // Adiciona um evento de clique ao link
-                                            thumbnailLink.href = `noticia.html?id=${item._id}`;
-                                        });
-                                    }
-                                })
-                                .catch((err) => console.error(err));
-                        </script>
+                        <script type="module" src="js/destaqueb.js"></script>
                         
                         
                         <style>
@@ -703,89 +439,7 @@
                                
                             </div>
                                             
-                      <script type="module">
-                                                    import imageUrlBuilder from 'https://cdn.skypack.dev/@sanity/image-url';
-                                                
-                                                    const builder = imageUrlBuilder({
-                                                        projectId: 'bi327w6t',
-                                                        dataset: 'production',
-                                                        apiVersion: '2021-10-21',
-                                                        useCdn: true,
-                                                    });
-                                                
-                                                    let PROJECT_ID = "bi327w6t";
-                                                    let DATASET = "production";
-                                                    let QUERY = encodeURIComponent('*[_type == "destaque"]');
-                                                
-                                                    let PROJECT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
-                                                
-                                                    // fetch the content
-                                                    fetch(PROJECT_URL)
-                                                        .then((res) => res.json())
-                                                        .then(({ result }) => {
-                                                            // Verifica se há pelo menos um resultado
-                                                            if (result.length > 0) {
-                                                                // Sort the results in descending order based on the 'data' property (most recent first)
-                                                                result.sort((a, b) => new Date(b.data) - new Date(a.data));
-                                                
-                                                                // Extrai as informações do primeiro item (o mais recente)
-                                                                const recentItems = result.slice(0,12);
-                                                                const newsContainers = document.getElementsByClassName('cs-posts-area__main cs-archive-grid  cs-posts-area__home cs-posts-area__grid');
-                                                                
-                                                
-                                                                recentItems.forEach((item) => {
-                                                                    const titulo = item.titulo;
-                                                                    const descricao = item.descricao;
-                                                                    const imagemUrl = builder.image(item?.imagem?.asset?._ref);
-                                                                    
-                                                                    const aut = item.autor;
-                                                                    const categoria=item.category;
-                                                
-                                                                    // Criação de elementos HTML dinâmicos
-                                                                    const newsCard = document.createElement
-                                                                    ("article");
-                                                                    newsCard.classList.add('post-2098', 'post' ,'type-post' ,'status-publish', 'format-standard', 'has-post-thumbnail' ,'category-lifestyle' ,'cs-entry')
-                                                
-                                                                    newsCard.innerHTML = `
-                                                                    
-                                                                        <div class="cs-entry__outer" id="yea" >
-                                                                            <div class="cs-entry__inner cs-entry__thumbnail cs-entry__overlay cs-overlay-ratio cs-ratio-landscape" data-scheme="inverse">
-                                                                                <div class="cs-overlay-background">
-                                                                                    <img width="512" height="384" src="${imagemUrl}" style="border:none"class="attachment-csco-thumbnail size-csco-thumbnail wp-post-image" alt="${titulo}" decoding="async" loading="lazy" />
-                                                                                </div>
-                                                                                <a class="cs-overlay-link" href="noticia.html?id=${item._id}" title="${titulo}"></a>
-                                                                            </div>
-                                                                            <div class="cs-entry__inner cs-entry__content">
-                                                                                <div class="cs-entry__post-meta">
-                                                                                    
-                                                                                </div>
-                                                                                <h2 class="cs-entry__title">
-                                                                                    <a href="noticia.html?id=${item._id}">
-                                                                                        <span  id="titul" style="font-size:19px; " >${titulo}</span>
-                                                                                    </a>
-                                                                                </h2>
-                                                                                <p class="cs-entry__subtitle " style="font-size:16px;     margin-top: 5px;
-" id="subt"> ${descricao}</p>
-
-                                                                                <div class="cs-entry__post-meta">
-                                                                                    <div class="cs-meta-category">
-                                                                                        <ul class="post-categories">
-                                                                                            <li><a href="noticia.html?id=${item._id}" rel="category tag">${categoria}</a></li>
-                                                                                        </ul>
-                                                                                    </div> 
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    `;
-                                                
-                                                                    // Loop through each news container and append the news card
-                                                                    Array.from(newsContainers).forEach(container => {
-                                                                        container.appendChild(newsCard.cloneNode(true));
-                                                                    });
-                                                                });
-                                                            }
-                                                        })
-                     </script>
+                      <script type="module" src="js/feed.js"></script>
 
                      <style>
                         
@@ -814,109 +468,12 @@
                                     
                                     
                     
-                    <script type="module">
-                        import imageUrlBuilder from 'https://cdn.skypack.dev/@sanity/image-url';
-                    
-                        const builder = imageUrlBuilder({
-                            projectId: 'bi327w6t',
-                            dataset: 'production',
-                            apiVersion: '2021-10-21',
-                            useCdn: true,
-                        });
-                    
-                        let PROJECT_ID = "bi327w6t";
-                        let DATASET = "production";
-                        let QUERY = encodeURIComponent('*[_type == "destaque"]');
-                    
-                        let PROJECT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
-                    
-                        // fetch the content
-                        fetch(PROJECT_URL)
-                            .then((res) => res.json())
-                            .then(({ result }) => {
-                                // Verifica se há pelo menos um resultado
-                                if (result.length > 0) {
-                                    // Inicializa um objeto para rastrear o número de elementos por categoria
-                                    const categoriesCount = {};
-                    
-                                    result.forEach((item) => {
-                                        const categoria = item.category;
-                    
-                                        // Incrementa o contador para a categoria ou inicializa com 1 se for a primeira vez
-                                        categoriesCount[categoria] = (categoriesCount[categoria] || 0) + 1;
-                                    });
-                    
-                                    // Extrai as informações do objeto para criar elementos HTML dinâmicos
-                                    const newsContainers = document.getElementsByClassName('wp-block-categories-list is-style-cs-tiles wp-block-categories');
-                                   
-                    
-                                    Object.entries(categoriesCount).forEach(([categoria, count]) => {
-                                        const newsCard = document.createElement("li");
-                                        newsCard.classList.add('cat-item', `cat-item-${categoria.toLowerCase()}`);
-                    
-                                        newsCard.innerHTML = `
-                                            <a href="/${categoria.toLowerCase()}.html">${categoria} <span>${count}</span></a>
-                                        `;
-                    
-                                        // Loop through each news container and append the news card
-                                        Array.from(newsContainers).forEach(container => {
-                                            container.appendChild(newsCard.cloneNode(true));
-                                        });
-                                    });
-                                }
-                            })
-                    </script>
                     
 
                     
 
-                    <div class="widget block-7 widget_block" style="border-bottom:0px solid var(--cs-color-border);">
-                        <div class="wp-block-group is-layout-constrained wp-block-group-is-layout-constrained">
-                            <div class="wp-block-group__inner-container">
-                                <h2 class="wp-block-heading">Publicidade</h2>
-                                <figure class="wp-block-image size-full is-resized"><img loading="lazy" decoding="async" width="600" height="800"   class="wp-image-2327" style="background-size:cover; background-repeat:no-repeat;width:300px;height:400px"
                                     
-                                     /></figure>
-                            </div>
-                        </div>
-                    </div>
-
-                    <script type="module">
-                        import imageUrlBuilder from 'https://cdn.skypack.dev/@sanity/image-url';
-                    
-                        const builder = imageUrlBuilder({
-                            projectId: 'bi327w6t',
-                            dataset: 'production',
-                            apiVersion: '2021-10-21',
-                            useCdn: true,
-                        });
-                    
-                        let PROJECT_ID = "bi327w6t";
-                        let DATASET = "production";
-                        let QUERY = encodeURIComponent('*[_type == "imprensa"]');
-                    
-                        let PROJECT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
-                    
-                        // fetch the content
-                        fetch(PROJECT_URL)
-                            .then((res) => res.json())
-                            .then(({ result }) => {
-                                // Verifica se há pelo menos um resultado
-                                if (result.length > 0) {
-                                    // Sort the results in descending order based on the 'data' property (most recent first)
-                                    result.sort((a, b) => new Date(b.data) - new Date(a.data));
-                    
-                                    // Extrai as informações do primeiro item (o mais recente)
-                                    const recentItem = result[0];
-                                    const newsContainers = document.getElementsByClassName('wp-image-2327')[0];
-                    
-                                    if (recentItem && newsContainers) {
-                                        const imageUrl = builder.image(recentItem?.imagem2?.asset?._ref);
-                                        newsContainers.style.backgroundImage = `url(${imageUrl})`;
-                                    }
-                                }
-                            })
-                    </script>
+                                    
 
 
                     <div class="widget block-4 widget_block">
@@ -925,69 +482,22 @@
                                 
                                 <ul class="wp-block-latest-posts__list has-dates has-author is-style-cs-horizontal-layout wp-block-latest-posts">
                                 
-                            <script type="module">
-                                import imageUrlBuilder from 'https://cdn.skypack.dev/@sanity/image-url';
-                            
-                                const builder = imageUrlBuilder({
-                                    projectId: 'bi327w6t',
-                                    dataset: 'production',
-                                    apiVersion: '2021-10-21',
-                                    useCdn: true,
-                                });
-                            
-                                let PROJECT_ID = "bi327w6t";
-                                let DATASET = "production";
-                                let QUERY = encodeURIComponent('*[_type == "destaque" && category == "Tecnologia"]');
-
-                                let PROJECT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
-                            
-                                // fetch the content
-                                fetch(PROJECT_URL)
-                                    .then((res) => res.json())
-                                    .then(({ result }) => {
-                                        // Verifica se há pelo menos um resultado
-                                        if (result.length > 0) {
-                                            // Sort the results in descending order based on the 'data' property (most recent first)
-                                            result.sort((a, b) => new Date(b.data) - new Date(a.data));
-                            
-                                            // Extrai as informações do primeiro item (o mais recente)
-                                            const recentItems = result;
-                                            const newsContainers = document.getElementsByClassName('wp-block-latest-posts__list has-dates has-author is-style-cs-horizontal-layout wp-block-latest-posts');
-                                            
-                            
-                                            recentItems.forEach((item) => {
-                                                const titulo = item.titulo;
-                                                const descricao = item.descricao;
-                                                const imagemUrl = builder.image(item?.imagem?.asset?._ref);
-                                                const dt = new Date(item.data).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                                                const aut = item.autor;
-                                                const categoria=item.category;
-                            
-                                                // Criação de elementos HTML dinâmicos
-                                                const newsCard = document.createElement("li");
-                                                
-                            
-                                                newsCard.innerHTML = `
-                                                
-                                                <div class="wp-block-latest-posts__featured-image alignleft">
-                                                    <a href="noticia.html?id=${item._id}">
-                                                        <img loading="lazy" decoding="async" width="150" height="150" src="${imagemUrl}" alt="Mindful Living: Incorporating Meditation into Your Daily Routine"
-                                                style="height:80%"  /></a>
-                                        </div><a class="wp-block-latest-posts__post-title"  href="noticia.html?id=${item._id}" >${titulo}</a>
-                                       
-                                                `;
-                            
-                                                // Loop through each news container and append the news card
-                                                Array.from(newsContainers).forEach(container => {
-                                                    container.appendChild(newsCard.cloneNode(true));
-                                                });
-                                            });
-                                        }
-                                    })
- </script>
+                            <script type="module" src="js/recentes.js"></script>
 
                     </ul>
                 </div>
+        </div>
+    </div>
+    <div class="widget block-7 widget_block" id="fixed-ad" style=" border-bottom:0px solid var(--cs-color-border)">
+        <div class="wp-block-group is-layout-constrained wp-block-group-is-layout-constrained">
+            <div class="wp-block-group__inner-container">
+                <h2 class="wp-block-heading">Publicidade</h2>
+                <figure class="wp-block-image size-full is-resized">
+                    <img loading="lazy" decoding="async" width="600" height="800"   class="wp-image-2327" style="background-size:cover; background-repeat:no-repeat;width:300px;height:400px; "
+                    
+    
+                     /> <script type="module" src="js/publicidade.js"></script></figure>
+            </div>
         </div>
     </div>
                     
@@ -1059,42 +569,7 @@ grid-template-columns: repeat(3, 1fr); /* Três colunas para telas maiores que 8
     
    </style> 
 
-<script type="module">
-    import imageUrlBuilder from 'https://cdn.skypack.dev/@sanity/image-url';
-
-    const builder = imageUrlBuilder({
-        projectId: 'bi327w6t',
-        dataset: 'production',
-        apiVersion: '2021-10-21',
-        useCdn: true,
-    });
-
-    let PROJECT_ID = "bi327w6t";
-    let DATASET = "production";
-    let QUERY = encodeURIComponent('*[_type == "imprensa"]');
-
-    let PROJECT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
-
-    // fetch the content
-    fetch(PROJECT_URL)
-        .then((res) => res.json())
-        .then(({ result }) => {
-            // Verifica se há pelo menos um resultado
-            if (result.length > 0) {
-                // Sort the results in descending order based on the 'data' property (most recent first)
-                result.sort((a, b) => new Date(b.data) - new Date(a.data));
-
-                // Extrai as informações do primeiro item (o mais recente)
-                const recentItem = result[0];
-                const newsContainers = document.getElementsByClassName('publicidade1')[0];
-
-                if (recentItem && newsContainers) {
-                    const imageUrl = builder.image(recentItem?.imagem?.asset?._ref);
-                    newsContainers.style.backgroundImage = `url(${imageUrl})`;
-                }
-            }
-        })
-</script>
+<script type="module" src="js/publicidade2.js"></script>
 
 
     <h2 style="text-align: center;">Explore o mundo da Tecnologia</h2>
@@ -1207,83 +682,9 @@ grid-template-columns: repeat(3, 1fr); /* Três colunas para telas maiores que 8
     
     
     </style>
-<script type="module">
-    import imageUrlBuilder from 'https://cdn.skypack.dev/@sanity/image-url';
 
-    const builder = imageUrlBuilder({
-        projectId: 'bi327w6t',
-        dataset: 'production',
-        apiVersion: '2021-10-21',
-        useCdn: true,
-    });
 
-    let PROJECT_ID = "bi327w6t";
-    let DATASET = "production";
-    let QUERY = encodeURIComponent('*[_type == "destaque" && category=="Tecnologia"]');
-
-    let PROJECT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
-
-    // fetch the content
-    fetch(PROJECT_URL)
-        .then((res) => res.json())
-        .then(({ result }) => {
-            // Verifica se há pelo menos um resultado
-            if (result.length > 0) {
-                // Sort the results in descending order based on the 'data' property (most recent first)
-                result.sort((a, b) => new Date(b.data) - new Date(a.data));
-
-                // Extrai as informações do primeiro item (o mais recente)
-                const recentItems = result.slice(0,4);
-                const newsContainers = document.getElementsByClassName('div251');
-                
-
-                recentItems.forEach((item) => {
-                    const titulo = item.titulo;
-                    const descricao = item.descricao;
-                    const imagemUrl = builder.image(item?.imagem?.asset?._ref);
-                    const dt = new Date(item.data).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                    
-
-                    // Criação de elementos HTML dinâmicos
-                    const newsCard = document.createElement
-                    ("article");
-                    newsCard.classList.add('post-2098', 'post' ,'type-post' ,'status-publish', 'format-standard', 'has-post-thumbnail' ,'category-lifestyle' ,'cs-entry')
-
-                    newsCard.innerHTML = `
-                    
-                        <div class="cs-entry__outer" >
-                            <div class="cs-entry__inner cs-entry__thumbnail cs-entry__overlay cs-overlay-ratio cs-ratio-landscape" data-scheme="inverse">
-                                <div class="cs-overlay-background">
-                                    <img width="512" height="384" src="${imagemUrl}" style="border:none"class="attachment-csco-thumbnail size-csco-thumbnail wp-post-image"  alt="${titulo}" decoding="async" loading="lazy" />
-                                </div>
-                                <a class="cs-overlay-link"  href="noticia.html?id=${item._id}" title="${titulo}"></a>
-                            </div>
-                            <div class="cs-entry__inner cs-entry__content">
-                                <div class="cs-entry__post-meta">
-                                    
-                                    <div class="cs-meta-date"></div>
-                                </div>
-                                <h2 class="cs-entry__title" id="cstitle" >
-                                    <a href="noticia.html?id=${item._id}">
-                                        <span>${titulo}</span>
-                                    </a>
-                                </h2>
-                                <p class="cs-entry__subtitle " style="font-size:16px;     margin-top: 5px;
-" id="subt"> ${descricao}</p>
-
-                               
-                            </div>
-                        </div>
-                    `;
-
-                    // Loop through each news container and append the news card
-                    Array.from(newsContainers).forEach(container => {
-                        container.appendChild(newsCard.cloneNode(true));
-                    });
-                });
-            }
-        })
-</script>
+<script type="module" src="js/Tecnologia1.js"></script>
 
 
 <h2 style="text-align: center; margin-top: 30px;">E quital um pouco de Marketing?</h2>
@@ -1292,84 +693,8 @@ grid-template-columns: repeat(3, 1fr); /* Três colunas para telas maiores que 8
                                                                                            
         </div>
     </div>
-    <script type="module">
-        import imageUrlBuilder from 'https://cdn.skypack.dev/@sanity/image-url';
-    
-        const builder = imageUrlBuilder({
-            projectId: 'bi327w6t',
-            dataset: 'production',
-            apiVersion: '2021-10-21',
-            useCdn: true,
-        });
-    
-        let PROJECT_ID = "bi327w6t";
-        let DATASET = "production";
-        let QUERY = encodeURIComponent('*[_type == "destaque" && category=="Marketing"]');
-    
-        let PROJECT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
-    
-        // fetch the content
-        fetch(PROJECT_URL)
-            .then((res) => res.json())
-            .then(({ result }) => {
-                // Verifica se há pelo menos um resultado
-                if (result.length > 0) {
-                    // Sort the results in descending order based on the 'data' property (most recent first)
-                    result.sort((a, b) => new Date(b.data) - new Date(a.data));
-    
-                    // Extrai as informações do primeiro item (o mais recente)
-                    const recentItems = result.slice(0,4);
-                    const newsContainers = document.getElementsByClassName('div252');
-                    
-    
-                    recentItems.forEach((item) => {
-                        const titulo = item.titulo;
-                        const descricao = item.descricao;
-                        const imagemUrl = builder.image(item?.imagem?.asset?._ref);
-                        const dt = new Date(item.data).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                        
-    
-                        // Criação de elementos HTML dinâmicos
-                        const newsCard = document.createElement
-                        ("article");
-                        newsCard.classList.add('post-2098', 'post' ,'type-post' ,'status-publish', 'format-standard', 'has-post-thumbnail' ,'category-lifestyle' ,'cs-entry')
-    
-                        newsCard.innerHTML = `
-                        
-                            <div class="cs-entry__outer" >
-                                <div class="cs-entry__inner cs-entry__thumbnail cs-entry__overlay cs-overlay-ratio cs-ratio-landscape" data-scheme="inverse">
-                                    <div class="cs-overlay-background">
-                                        <img width="512" height="384" src="${imagemUrl}" style="border:none"class="attachment-csco-thumbnail size-csco-thumbnail wp-post-image"  alt="${titulo}" decoding="async" loading="lazy" />
-                                    </div>
-                                    <a class="cs-overlay-link"  href="noticia.html?id=${item._id}" title="${titulo}"></a>
-                                </div>
-                                <div class="cs-entry__inner cs-entry__content">
-                                    <div class="cs-entry__post-meta">
-                                        
-                                        <div class="cs-meta-date"></div>
-                                    </div>
-                                    <h2 class="cs-entry__title" id="cstitle" >
-                                        <a href="noticia.html?id=${item._id}">
-                                            <span >${titulo}</span>
-                                        </a>
-                                    </h2>
-                                    <p class="cs-entry__subtitle " style="font-size:16px;     margin-top: 5px;
-                                    " id="subt"> ${descricao}</p>
-                                    
+    <script type="module" src="js/Marketing1.js"></script>
 
-                                   
-                                </div>
-                            </div>
-                        `;
-    
-                        // Loop through each news container and append the news card
-                        Array.from(newsContainers).forEach(container => {
-                            container.appendChild(newsCard.cloneNode(true));
-                        });
-                    });
-                }
-            })
-    </script>
     <style>
 
 
@@ -1485,9 +810,9 @@ grid-template-columns: repeat(3, 1fr); /* Três colunas para telas maiores que 8
                 <div class="cs-footer__item-inner">
                     <div class="cs-footer__col cs-col-left">
                         <div class="cs-logo">
-                            <a class="cs-header__logo cs-logo-default " href="index.html"> <img src="westart-logo-filled-default-horizontal.1.png"  alt="Lifestyle" 
+                            <a class="cs-header__logo cs-logo-default " href="index.html"> <img src="westart-logo-filled-default-horizontal.1.png"  alt="westart" 
                                 style="width:150px; height:auto"> </a>
-                            <a class="cs-header__logo cs-logo-dark " href="index.html"> <img src="westart-logo-filled-default-horizontal.png" alt="Lifestyle"  style="width:150px; height:auto"
+                            <a class="cs-header__logo cs-logo-dark " href="index.html"> <img src="westart-logo-filled-default-horizontal.png" alt="westart"  style="width:150px; height:auto"
                                > </a>
                         </div>
                         <div class="cs-footer__desc"> </div>
