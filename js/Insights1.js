@@ -32,7 +32,15 @@
                                                                     recentItems.forEach((item) => {
                                                                         const titulo = item.titulo;
                                                                         const descricao = item.descricao;
-                                                                        const imagemUrl = builder.image(item?.imagem?.asset?._ref);
+                                                                         const imagemUrl = builder.image(item?.imagem?.asset?._ref);
+            
+                 const tituloConverted = titulo.replace(/\s+/g, '-');
+            
+               
+
+
+
+
                                                                         const dt = new Date(item.data).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
                                                                         const aut = item.autor;
                                                                         const categoria = item.category;
@@ -47,12 +55,12 @@
                                                                                     <div class="cs-overlay-background">
                                                                                         <img width="512" height="384" src="${imagemUrl}" class="attachment-csco-thumbnail size-csco-thumbnail wp-post-image" alt="${titulo}" decoding="async" loading="lazy" />
                                                                                     </div>
-                                                                                    <a class="cs-overlay-link" href="noticia.html?id=${item._id}" title="${titulo}"></a>
+                                                                                    <a class="cs-overlay-link" href="noticia.html?id=${tituloConverted}" title="${titulo}"></a>
                                                                                 </div>
                                                                                 <div class="cs-entry__inner cs-entry__content">
                                                                                   
                                                                                     <h2 style="margin-top:5px; text-align:left;"class="cs-entry__title" id="titul">
-                                                                                        <a href="noticia.html?id=${item._id}" style="padding:0;">
+                                                                                        <a href="noticia.html?id=${tituloConverted}" style="padding:0;">
                                                                                             <span style="font-weight:600; ">${titulo}</span>
                                                                                         </a>
                                                                                     </h2>

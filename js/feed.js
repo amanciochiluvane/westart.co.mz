@@ -23,14 +23,22 @@
                                                                 result.sort((a, b) => new Date(b.data) - new Date(a.data));
                                                 
                                                                 // Extrai as informações do primeiro item (o mais recente)
-                                                                const recentItems = result.slice(7,19);
+                                                                const recentItems = result.slice(3,15);
                                                                 const newsContainers = document.getElementsByClassName('cs-posts-area__main cs-archive-grid  cs-posts-area__home cs-posts-area__grid');
                                                                 
                                                 
                                                                 recentItems.forEach((item) => {
                                                                     const titulo = item.titulo;
                                                                     const descricao = item.descricao;
-                                                                    const imagemUrl = builder.image(item?.imagem?.asset?._ref);
+                                                                     const imagemUrl = builder.image(item?.imagem?.asset?._ref);
+            
+                 const tituloConverted = titulo.replace(/\s+/g, '-');
+            
+               
+
+
+
+
                                                                     
                                                                     const aut = item.autor;
                                                                     const categoria=item.category;
@@ -47,14 +55,14 @@
                                                                                 <div class="cs-overlay-background">
                                                                                     <img width="512" height="384" src="${imagemUrl}" style="border:none"class="attachment-csco-thumbnail size-csco-thumbnail wp-post-image" alt="${titulo}" decoding="async" loading="lazy" />
                                                                                 </div>
-                                                                                <a class="cs-overlay-link" href="noticia.html?id=${item._id}" title="${titulo}"></a>
+                                                                                <a class="cs-overlay-link" href="noticia.html?id=${tituloConverted}" title="${titulo}"></a>
                                                                             </div>
                                                                             <div class="cs-entry__inner cs-entry__content">
                                                                                 <div class="cs-entry__post-meta">
                                                                                     
                                                                                 </div>
                                                                                 <h2 class="cs-entry__title">
-                                                                                    <a href="noticia.html?id=${item._id}">
+                                                                                    <a href="noticia.html?id=${tituloConverted}">
                                                                                         <span  id="titul" style="font-size:19px; " >${titulo}</span>
                                                                                     </a>
                                                                                 </h2>
@@ -64,7 +72,7 @@
                                                                                 <div class="cs-entry__post-meta">
                                                                                     <div class="cs-meta-category">
                                                                                         <ul class="post-categories">
-                                                                                            <li><a href="noticia.html?id=${item._id}" rel="category tag">${categoria}</a></li>
+                                                                                            <li><a href="noticia.html?id=${tituloConverted}" rel="category tag">${categoria}</a></li>
                                                                                         </ul>
                                                                                     </div> 
                                                                                 </div>

@@ -14,13 +14,16 @@ const urlParams = new URLSearchParams(window.location.search);
 const noticiaId = urlParams.get('id');
 
 
-const PROJECT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/doc/${DATASET}/${noticiaId}`;
+const noticiaIdOriginal = noticiaId.replace(/-/g, ' ');
 
+let QUERY = encodeURIComponent(`*[_type == "destaque" && titulo == "${noticiaIdOriginal}"]`);
+
+let PROJECT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
 // Fetch the current news content
 fetch(PROJECT_URL)
     .then((res) => res.json())
-    .then(({ documents }) => {
-        const item = documents[0];
+    .then(({ result }) => {
+        const item = result[0];
         const categoriaAtual=item.category;
        
 
@@ -48,12 +51,16 @@ fetch(urlRelacionada)
         // Get the current news article ID from the URL
         const urlParams = new URLSearchParams(window.location.search);
         const currentNewsId = urlParams.get('id');
-
+        const currentNewsId2  = currentNewsId.replace(/-/g, ' ');
+        console.log(currentNewsId2);
         result.forEach((item) => {
             // Check if the article ID is different from the current news article ID
-            if (item._id !== currentNewsId) {
+            if (item.titulo !== currentNewsId2) {
                 const titulo = item.titulo;
-                const imagemUrl = builder.image(item?.imagem?.asset?._ref);
+                 const imagemUrl = builder.image(item?.imagem?.asset?._ref);
+                 const tituloConverted = titulo.replace(/\s+/g, '-');
+       
+
                 const categoria = item.category;
 
                 // Create HTML elements dynamically
@@ -66,11 +73,11 @@ fetch(urlRelacionada)
                             <div class="cs-overlay-background">
                                 <img width="512" height="384" src="${imagemUrl}" class="attachment-csco-thumbnail size-csco-thumbnail wp-post-image" alt="${titulo}" decoding="async" loading="lazy" />
                             </div>
-                            <a class="cs-overlay-link" href="noticia.html?id=${item._id}" title="${titulo}"></a>
+                            <a class="cs-overlay-link" href="noticia.html?id=${tituloConverted}" title="${titulo}"></a>
                         </div>
                         <div class="cs-entry__inner cs-entry__content">
                             <h2 class="cs-entry__title">
-                                <a href="noticia.html?id=${item._id}">
+                                <a href="noticia.html?id=${tituloConverted}">
                                     <span>${titulo}</span>
                                 </a>
                             </h2>

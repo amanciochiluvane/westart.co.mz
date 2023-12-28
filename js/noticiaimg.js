@@ -1,4 +1,3 @@
-
 import imageUrlBuilder from 'https://cdn.skypack.dev/@sanity/image-url';
 
 const builder = imageUrlBuilder({
@@ -14,11 +13,12 @@ let DATASET = "production";
 
 const urlParams = new URLSearchParams(window.location.search);
 const noticiaId = urlParams.get('id');
+const noticiaIdOriginal = noticiaId.replace(/-/g, ' ');
 
-              
-              if (noticiaId) {
+let QUERY = encodeURIComponent(`*[_type == "destaque" && titulo == "${noticiaIdOriginal}"]`);
 
-                  const PROJECT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/doc/${DATASET}/${noticiaId}`;   
+
+let PROJECT_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
 
 
 
@@ -26,12 +26,12 @@ const noticiaId = urlParams.get('id');
 // fetch the content
 fetch(PROJECT_URL)
   .then((res) => res.json())
-  .then(({ documents }) => {
+  .then(({ result }) => {
    
       
-
+if (result.length >0) {
       // Extrai as informações do primeiro item (o mais recente)
-      const item = documents[0];
+      const item = result[0];
 
 // Loop sobre os itens em destaque
       
@@ -42,8 +42,8 @@ fetch(PROJECT_URL)
         
         const thumbnail3 = document.querySelector('#hig');
         
-        const title = document.querySelector('.cs-entry__title');
-        const categoria=document.querySelector('.cs-catg');
+        const titulonoticia = document.querySelector('#tttitulo');
+        const categoria=document.querySelector('#ccateg');
        
          
         // Atualiza os elementos HTML com os dados do item
@@ -56,7 +56,7 @@ fetch(PROJECT_URL)
         
         thumbnail.alt = item.titulo;
        
-        title.textContent = item.titulo;
+        titulonoticia.textContent = item.titulo;
         
         categoria.textContent=item.category;
     
@@ -65,10 +65,10 @@ fetch(PROJECT_URL)
 
       // Add an event listener to the "Ler mais" link
      
-
+   
       
-      
+    }
     
   })
+
   .catch((err) => console.error(err));
-}

@@ -19,15 +19,20 @@ const noticiaId = urlParams.get('id');
 if (noticiaId) {
   
     // Construa a URL para obter os detalhes da notícia usando noticiaId
-    const DETAIL_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/doc/${DATASET}/${noticiaId}`;
+    const noticiaIdOriginal = noticiaId.replace(/-/g, ' ');
+
+let QUERY = encodeURIComponent(`*[_type == "destaque" && titulo == "${noticiaIdOriginal}"]`);
+
+
+let DETAIL_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
 
    
 
     // Fetch para obter os detalhes da notícia
     fetch(DETAIL_URL)
   .then((res) => res.json())
-  .then(({ documents }) => {
-      const item = documents[0];
+  .then(({ result }) => {
+      const item = result[0];
       
       
       // Atualize os elementos HTML com os detalhes da notícia
@@ -79,8 +84,8 @@ else if (block.listItem === 'bullet') {
 
 const listElement = document.createElement('li');
 
-listElement.style.fontSize = '17px';
-
+listElement.style.fontSize = '16px';
+listElement.style.marginBottom = '5px';
 blockElement = listElement;
 } 
 
@@ -90,6 +95,7 @@ blockElement = listElement;
 else{
 // Se o tipo não for 'block' ou lista, crie um elemento padrão (não uma div)
 blockElement = document.createElement(block.marks ? block.marks[0] : 'p');
+blockElement.style.fontSize='16px';
 }
 
 // Atribua o conteúdo do bloco ao elemento

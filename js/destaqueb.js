@@ -44,9 +44,10 @@
                                             title.textContent = item.titulo;
                                             subtitle.textContent = item.descricao;
                                             categoria.textContent = item.category;
-                        
+                                            
+                                            const tituloConverted = item.titulo.replace(/\s+/g, '-');
                                             // Adiciona um evento de clique ao link
-                                            thumbnailLink.href = `noticia.html?id=${item._id}`;
+                                            thumbnailLink.href = `noticia.html?id=${tituloConverted}`;
                                         });
                                     }
                                 })

@@ -95,7 +95,8 @@
                     <div class="cs-social">
                         <a class="cs-social__link" href="#" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-facebook-0001.webp" alt="Facebook" srcset="">                                </a>
                         <a class="cs-social__link" href="#" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-twitter-new-0001.webp" alt="Twitter" srcset="">                                </a>
-                        <a class="cs-social__link" href="#" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-instagram-0001.webp" alt="Instagram" srcset="">                                </a>
+                        <a class="cs-social__link" href="https://www.instagram.com/westartoficial?utm_source=ig_web_button_share_sheet&igsh=OGQ5ZDc2ODk2ZA==" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-instagram-0001.webp" alt="Instagram" srcset=""> 
+                               </a>
                         <a class="cs-social__link" href="#" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-linkedin-0003.png" alt="Linkedin" srcset="">                                </a>
                     </div>
                     </div> <span class="cs-site-scheme-toggle cs-offcanvas__scheme-toggle" role="button" aria-label="Scheme Toggle"> <span class="cs-header__scheme-toggle-icons"> <i class="cs-header__scheme-toggle-icon cs-icon cs-icon-light-mode"></i> <i class="cs-header__scheme-toggle-icon cs-icon cs-icon-dark-mode"></i> </span>                    </span>
@@ -185,7 +186,15 @@
                                                                     recentItems.forEach((item) => {
                                                                         const titulo = item.titulo;
                                                                         const descricao = item.descricao;
-                                                                        const imagemUrl = builder.image(item?.imagem?.asset?._ref);
+                                                                         const imagemUrl = builder.image(item?.imagem?.asset?._ref);
+            
+                 const tituloConverted = titulo.replace(/\s+/g, '-');
+            
+               
+
+
+
+
                                                                         const dt = new Date(item.data).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
                                                                         const aut = item.autor;
                                                                         const categoria = item.category;
@@ -200,12 +209,12 @@
                                                                                     <div class="cs-overlay-background">
                                                                                         <img width="512" height="384" src="${imagemUrl}" class="attachment-csco-thumbnail size-csco-thumbnail wp-post-image" alt="${titulo}" decoding="async" loading="lazy" />
                                                                                     </div>
-                                                                                    <a class="cs-overlay-link" href="noticia.html?id=${item._id}" title="${titulo}"></a>
+                                                                                    <a class="cs-overlay-link" href="noticia.html?id=${tituloConverted}" title="${titulo}"></a>
                                                                                 </div>
                                                                                 <div class="cs-entry__inner cs-entry__content">
                                                                                   
                                                                                     <h2 style="margin-top:5px; text-align:left;"class="cs-entry__title" id="titul">
-                                                                                        <a href="noticia.html?id=${item._id}" style="padding:0;">
+                                                                                        <a href="noticia.html?id=${tituloConverted}" style="padding:0;">
                                                                                             <span style="font-weight:600; ">${titulo}</span>
                                                                                         </a>
                                                                                     </h2>
@@ -412,7 +421,8 @@
                                     <div class="cs-social">
                                         <a class="cs-social__link" href="#" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-facebook-0001.webp" alt="Facebook" srcset="">                                </a>
                                         <a class="cs-social__link" href="#" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-twitter-new-0001.webp" alt="Twitter" srcset="">                                </a>
-                                        <a class="cs-social__link" href="#" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-instagram-0001.webp" alt="Instagram" srcset="">                                </a>
+                                        <a class="cs-social__link" href="https://www.instagram.com/westartoficial?utm_source=ig_web_button_share_sheet&igsh=OGQ5ZDc2ODk2ZA==" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-instagram-0001.webp" alt="Instagram" srcset=""> 
+                               </a>
                                         <a class="cs-social__link" href="#" target="_blank"> <img src="wp-content/uploads/sites/2/2023/10/demo-icon-linkedin-0003.png" alt="Linkedin" srcset="">                                </a>
                                     </div>
                                 </div>

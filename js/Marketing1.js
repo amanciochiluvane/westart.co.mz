@@ -31,8 +31,16 @@ fetch(PROJECT_URL)
             recentItems.forEach((item) => {
                 const titulo = item.titulo;
                 const descricao = item.descricao;
-                const imagemUrl = builder.image(item?.imagem?.asset?._ref);
-                const dt = new Date(item.data).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                 const imagemUrl = builder.image(item?.imagem?.asset?._ref);
+            
+                const tituloConverted = titulo.replace(/\s+/g, '-');
+            
+               
+
+
+            
+             
+              
                 
 
                 // Criação de elementos HTML dinâmicos
@@ -47,7 +55,7 @@ fetch(PROJECT_URL)
                             <div class="cs-overlay-background">
                                 <img width="512" height="384" src="${imagemUrl}" style="border:none"class="attachment-csco-thumbnail size-csco-thumbnail wp-post-image"  alt="${titulo}" decoding="async" loading="lazy" />
                             </div>
-                            <a class="cs-overlay-link"  href="noticia.html?id=${item._id}" title="${titulo}"></a>
+                            <a class="cs-overlay-link"  href="noticia.html?id=${tituloConverted}" title="${titulo}"></a>
                         </div>
                         <div class="cs-entry__inner cs-entry__content">
                             <div class="cs-entry__post-meta">
@@ -55,7 +63,7 @@ fetch(PROJECT_URL)
                                 <div class="cs-meta-date"></div>
                             </div>
                             <h2 class="cs-entry__title" id="cstitle" >
-                                <a href="noticia.html?id=${item._id}">
+                                <a href="noticia.html?id=${tituloConverted}">
                                     <span>${titulo}</span>
                                 </a>
                             </h2>
@@ -66,6 +74,8 @@ fetch(PROJECT_URL)
                         </div>
                     </div>
                 `;
+
+                
 
                 // Loop through each news container and append the news card
                 Array.from(newsContainers).forEach(container => {

@@ -24,14 +24,14 @@
                                             result.sort((a, b) => new Date(b.data) - new Date(a.data));
                             
                                             // Extrai as informações do primeiro item (o mais recente)
-                                            const recentItems = result.slice(3,7);
+                                            const recentItems = result.slice(15,18);
                                             const newsContainers = document.getElementsByClassName('wp-block-latest-posts__list has-dates has-author is-style-cs-horizontal-layout wp-block-latest-posts');
                                             
                             
                                             recentItems.forEach((item) => {
                                                 const titulo = item.titulo;
                                                 const descricao = item.descricao;
-                                                const imagemUrl = builder.image(item?.imagem?.asset?._ref);
+                                                const imagemUrl = builder.image(item?.banimg?.asset?._ref);
                                                 const dt = new Date(item.data).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
                                                 const aut = item.autor;
                                                 const categoria=item.category;
@@ -43,10 +43,10 @@
                                                 newsCard.innerHTML = `
                                                 
                                                 <div class="wp-block-latest-posts__featured-image alignleft">
-                                                    <a href="noticia.html?id=${item._id}">
+                                                    <a href="noticia.html?id=${tituloConverted}">
                                                         <img loading="lazy" decoding="async" width="150" height="150" src="${imagemUrl}" alt="Mindful Living: Incorporating Meditation into Your Daily Routine"
-                                                style="height:80%"  /></a>
-                                        </div><a class="wp-block-latest-posts__post-title"  href="noticia.html?id=${item._id}" >${titulo}</a>
+                                                style="height:100%"  /></a>
+                                        </div><a class="wp-block-latest-posts__post-title"  href="noticia.html?id=${tituloConverted}" >${titulo}</a>
                                        
                                                 `;
                             
