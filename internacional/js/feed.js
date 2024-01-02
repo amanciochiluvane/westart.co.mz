@@ -32,7 +32,7 @@
                                                                     const descricao = item.descricao;
                                                                      const imagemUrl = builder.image(item?.imagem?.asset?._ref);
             
-                 const tituloConverted = titulo.replace(/\s+/g, '-');
+                 const tituloConverted = titulo.replace(/\s+/g, '--');
             
                
 

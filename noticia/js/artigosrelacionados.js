@@ -14,7 +14,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const noticiaId = urlParams.get('id');
 
 
-const noticiaIdOriginal = noticiaId.replace(/-/g, ' ');
+const noticiaIdOriginal = noticiaId.replace(/--/g, ' ');
 
 let QUERY = encodeURIComponent(`*[_type == "destaque" && titulo == "${noticiaIdOriginal}"]`);
 
@@ -51,7 +51,7 @@ fetch(urlRelacionada)
         // Get the current news article ID from the URL
         const urlParams = new URLSearchParams(window.location.search);
         const currentNewsId = urlParams.get('id');
-        const currentNewsId2  = currentNewsId.replace(/-/g, ' ');
+        const currentNewsId2  = currentNewsId.replace(/--/g, ' ');
         console.log(currentNewsId2);
         
         result.slice(0,4);
@@ -60,7 +60,7 @@ fetch(urlRelacionada)
             if (item.titulo !== currentNewsId2) {
                 const titulo = item.titulo;
                  const imagemUrl = builder.image(item?.imagem?.asset?._ref);
-                 const tituloConverted = titulo.replace(/\s+/g, '-');
+                 const tituloConverted = titulo.replace(/\s+/g, '--');
        
 
                 const categoria = item.category;

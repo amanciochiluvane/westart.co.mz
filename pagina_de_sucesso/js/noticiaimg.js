@@ -13,7 +13,7 @@ let DATASET = "production";
 
 const urlParams = new URLSearchParams(window.location.search);
 const noticiaId = urlParams.get('id');
-const noticiaIdOriginal = noticiaId.replace(/-/g, ' ');
+const noticiaIdOriginal = noticiaId.replace(/--/g, ' ');
 
 let QUERY = encodeURIComponent(`*[_type == "destaque" && titulo == "${noticiaIdOriginal}"]`);
 

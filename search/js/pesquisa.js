@@ -41,14 +41,14 @@ fetch(PROJECT_URL)
                 const descricao = item.descricao;
                  const imagemUrl = builder.image(item?.imagem?.asset?._ref);
             
-                 const tituloConverted = titulo.replace(/\s+/g, '-');
+                 const tituloConverted = titulo.replace(/\s+/g, '--');
             
                
 
 
 
 
-                const dt = new Date(item.data).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                const dt = new Date(item.data).toLocaleDateString('pt-PT', { year: 'numeric', month: 'long', day: 'numeric' });
                 const aut = item.autor;
                 const categoria=item.category;
 
@@ -68,7 +68,7 @@ fetch(PROJECT_URL)
                         <div class="cs-entry__inner cs-entry__content">
                             <div class="cs-entry__post-meta">
                                 <div class="cs-meta-author">
-                                    <span class="cs-meta-author-by">By</span>
+                                    <span class="cs-meta-author-by">Por</span>
                                     <a class="cs-meta-author-link url fn n" href="#">
                                         <span class="cs-meta-author-name">${aut}</span>
                                     </a>

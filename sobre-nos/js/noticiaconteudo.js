@@ -19,7 +19,7 @@ const noticiaId = urlParams.get('id');
 if (noticiaId) {
   
     // Construa a URL para obter os detalhes da notícia usando noticiaId
-    const noticiaIdOriginal = noticiaId.replace(/-/g, ' ');
+    const noticiaIdOriginal = noticiaId.replace(/--/g, ' ');
 
 let QUERY = encodeURIComponent(`*[_type == "destaque" && titulo == "${noticiaIdOriginal}"]`);
 

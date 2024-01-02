@@ -30,11 +30,13 @@
                             
                                             recentItems.forEach((item) => {
                                                 const titulo = item.titulo;
-                                                const descricao = item.descricao;
+                                               
                                                 const imagemUrl = builder.image(item?.banimg?.asset?._ref);
-                                                const dt = new Date(item.data).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                                                const aut = item.autor;
-                                                const categoria=item.category;
+                                                
+                                                
+                                                const tituloConverted = titulo.replace(/\s+/g, '--');
+            
+                                                
                             
                                                 // Criação de elementos HTML dinâmicos
                                                 const newsCard = document.createElement("li");

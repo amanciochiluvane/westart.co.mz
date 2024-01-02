@@ -34,14 +34,14 @@ fetch(PROJECT_URL)
                 const descricao = item.descricao;
                  const imagemUrl = builder.image(item?.imagem?.asset?._ref);
             
-                 const tituloConverted = titulo.replace(/\s+/g, '-');
+                 const tituloConverted = titulo.replace(/\s+/g, '--');
             
                
 
 
 
 
-                const dt = new Date(item.data).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                const dt = new Date(item.data).toLocaleDateString('pt-PT', { year: 'numeric', month: 'long', day: 'numeric' });
                 const aut = item.autor;
                 const categoria=item.category;
 
