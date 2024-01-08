@@ -24,7 +24,7 @@
                                             result.sort((a, b) => new Date(b.data) - new Date(a.data));
                             
                                             // Extrai as informações do primeiro item (o mais recente)
-                                            const recentItems = result.slice(15,18);
+                                            const recentItems = result.slice(15,19);
                                             const newsContainers = document.getElementsByClassName('wp-block-latest-posts__list has-dates has-author is-style-cs-horizontal-layout wp-block-latest-posts');
                                             
                             
@@ -46,9 +46,9 @@
                                                 
                                                 <div class="wp-block-latest-posts__featured-image alignleft">
                                                     <a href="/noticia/?id=${tituloConverted}">
-                                                        <img loading="lazy" decoding="async" width="150" height="150" src="${imagemUrl}" alt="Mindful Living: Incorporating Meditation into Your Daily Routine"
+                                                        <img loading="lazy" decoding="async" width="150" height="150" src="${imagemUrl}" alt="${titulo}"
                                                 style="height:100%"  /></a>
-                                        </div><a class="wp-block-latest-posts__post-title" id="titul" href="/noticia/?id=${tituloConverted}" >${titulo}</a>
+                                        </div><a class="wp-block-latest-posts__post-title"  href="/noticia/?id=${tituloConverted}" >${titulo}</a>
                                        
                                                 `;
                             
