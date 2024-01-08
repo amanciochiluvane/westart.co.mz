@@ -32,7 +32,7 @@ fetch(PROJECT_URL)
                 const titulo = item.titulo;
                
                 const imagemUrl = builder.image(item?.banimg?.asset?._ref);
-                
+                const dt = new Date(item.data).toLocaleDateString('pt-PT', { year: 'numeric', month: 'long', day: 'numeric' });
                 
                 const tituloConverted = titulo.replace(/\s+/g, '--');
 
@@ -49,6 +49,8 @@ fetch(PROJECT_URL)
                         <img loading="lazy" decoding="async" width="150" height="150" src="${imagemUrl}" 
                 style="height:100%"  /></a>
         </div><a class="wp-block-latest-posts__post-title" id="titul" href="/noticia/?id=${tituloConverted}" >${titulo}</a>
+        
+<time datetime="2023-03-19T09:40:05+00:00" class="wp-block-latest-posts__post-date">${dt}</time>
        
                 `;
 
