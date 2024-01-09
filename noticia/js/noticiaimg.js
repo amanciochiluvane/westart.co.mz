@@ -44,7 +44,7 @@ if (result.length >0) {
         
         const titulonoticia = document.querySelector('#tttitulo');
         const categoria=document.querySelector('#ccateg');
-       
+        const descricaonoticia = document.querySelector('.cs-entry__subtitle');
          
         // Atualiza os elementos HTML com os dados do item
         thumbnail.src = builder.image(item?.imagem?.asset?._ref);
@@ -57,7 +57,7 @@ if (result.length >0) {
         thumbnail.alt = item.titulo;
        
         titulonoticia.textContent = item.titulo;
-        
+        descricaonoticia.textContent= item.descricao;
         categoria.textContent=item.category;
     
 
