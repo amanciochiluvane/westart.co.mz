@@ -49,8 +49,9 @@ fetch(PROJECT_URL)
                     <a href="/noticia/?id=${tituloConverted}">
                         <img loading="lazy" decoding="async" width="150" height="150" src="${imagemUrl}" 
                 style="height:100%"  /></a>
+               
         </div> 
-        <time datetime="2023-03-19T09:40:05+00:00" class="wp-block-latest-posts__post-date">${dt}</time>
+        <time  id="datal">${dt}</time>
         <a class="wp-block-latest-posts__post-title" id="titul" href="/noticia/?id=${tituloConverted}" >${titulo}</a>
         
 
