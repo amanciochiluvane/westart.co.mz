@@ -1,3 +1,4 @@
+
 import imageUrlBuilder from 'https://cdn.skypack.dev/@sanity/image-url';
                             
 const builder = imageUrlBuilder({
@@ -31,23 +32,21 @@ fetch(PROJECT_URL)
                 const titulo = item.titulo;
                
                 const imagemUrl = builder.image(item?.banimg?.asset?._ref);
+                
                 const dtt = new Date(item.data).toLocaleDateString('pt-PT', { year: 'numeric', month: 'long', day: 'numeric' });
+                const parts = dtt.split(' ');
 
-// Obter partes da data formatada
-const parts = dtt.split(' ');
-
-// Verificar se a parte correspondente ao mês existe e não está vazia
-if (parts.length >= 3 && parts[2]) {
-    // Substituir a primeira letra do mês pela versão maiúscula
-    parts[2] = parts[2].charAt(0).toUpperCase() + parts[2].slice(1);
-}
-
-// Juntar as partes de volta em uma string
-const dt = parts.join(' ');
+                // Verificar se a parte correspondente ao mês existe e não está vazia
+                if (parts.length >= 3 && parts[2]) {
+                    // Substituir a primeira letra do mês pela versão maiúscula
+                    parts[2] = parts[2].charAt(0).toUpperCase() + parts[2].slice(1);
+                }
+                
+                // Juntar as partes de volta em uma string
+                const dt = parts.join(' ');
                 
                 const tituloConverted = titulo.replace(/\s+/g, '--');
 
-                
                 
 
                 // Criação de elementos HTML dinâmicos
@@ -77,5 +76,3 @@ const dt = parts.join(' ');
             });
         }
     })
-    
-    
